@@ -17,10 +17,12 @@ layout: default
 
 # List of Publications
 
-*   <img width="250" height="100" style="vertical-align:middle" src="/images/Our_proposal.jpg">M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020 [PDF](https://arxiv.org/abs/2005.11549)[***Code*]
-*   <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>) [**PDF**](https://arxiv.org/pdf/2005.08321.pdf)[**Talk**](https://youtu.be/qFrkUeBjTMA)[**Code**].
+*   <img width="250" height="100" style="vertical-align:middle" src="/images/Our_proposal.jpg">M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020. [**[PDF]**](https://arxiv.org/abs/2005.11549)[**[Code]**]()
+*   <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). [**[PDF]**](https://arxiv.org/pdf/2005.08321.pdf)[**[Talk]**](https://youtu.be/qFrkUeBjTMA)[**[Code]**].
 
-*  <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg" > C. Shui, M. Abbasi, L.E. Robitaille, B. Wang, C. Gagné, "A Principled Approach for Learning Task Similarity in Multitask Learning", International Joint Conference on Artificial Intelligence (IJCAI) 2019 (Poster, Acceptance rate ~18%).
+*  <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg" > C. Shui, M. Abbasi, L.E. Robitaille, B. Wang, C. Gagné, "A Principled Approach for Learning Task Similarity in Multitask Learning", International Joint Conference on Artificial Intelligence (IJCAI) 2019. (Poster, Acceptance rate ~18%). [**[PDF]**]()[**[Poster]**]()[**[Code]**]().
+
+
 
 
 
