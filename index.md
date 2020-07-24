@@ -6,7 +6,7 @@ layout: default
 # Bio
  I am the last-year P.h.D student at Electrical and Computer Engineering Department of [Universite Laval](https://www.ulaval.ca/en/)(UL) under supervision of [Christian Gagne](http://vision.gel.ulaval.ca/~cgagne/) and [Denis Laurendeau](http://vision.gel.ulaval.ca/~laurend/). My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. Before joining UL, I was a researcher master student at [Digitial Media Lab](http://dml.ir/) of [Sharif University of Technology](http://www.en.sharif.edu/), working on [3D human pose estimation](https://ieeexplore.ieee.org/document/7335521/) under supervision [H. Reza. Rabiee](http://sharif.edu/~rabiee/).
 
-# My Research Interest
+# My Research Interests
 - Dependable and Secure Deep Neural Networks
    - Uncertainty Estimation, Detection of adversarial examples & Out-of-Distribution samples
 - Adversarial Networks; Domain Adversarial Networks (DAN), Generative Adversarial Networks (GAN)
@@ -18,7 +18,8 @@ layout: default
 # List of Publications
 
 *   <img width="250" height="100" style="vertical-align:middle" src="/images/Our_proposal.jpg">M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
-*   <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 [**Best paper award**].
+*   <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>).
+*  <img width="250" height="100" style="vertical-align:middle" src="/images/Ensemble.jpg" > C. Shui, M. Abbasi, L.E. Robitaille, B. Wang, C. Gagné, "A Principled Approach for Learning Task Similarity in Multitask Learning", International Joint Conference on Artificial Intelligence (IJCAI) 2019 (Poster, Acceptance rate ~18%).
 
 
 
