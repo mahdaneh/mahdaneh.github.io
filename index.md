@@ -17,10 +17,10 @@ layout: default
 
 # List of Publications
 
-*   ####2020 <img width="250" height="200" style="vertical-align:middle" src="/images/Our_proposal.jpg">M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020. [**[PDF]**](https://arxiv.org/abs/2005.11549)[**[Code]**]()
-*   ####2020<img width="250" height="200" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). [**[PDF]**](https://arxiv.org/pdf/2005.08321.pdf)[**[Talk]**](https://youtu.be/qFrkUeBjTMA)[**[Code]**]().
+*   <img width="250" height="200" style="vertical-align:middle" src="/images/Our_proposal.jpg">M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020. [**[PDF]**](https://arxiv.org/abs/2005.11549)[**[Code]**]()
+*   <img width="250" height="200" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). [**[PDF]**](https://arxiv.org/pdf/2005.08321.pdf)[**[Talk]**](https://youtu.be/qFrkUeBjTMA)[**[Code]**]().
 
-*   [2020]()<img width="250" height="200" style="vertical-align:middle" src="/images/ECAI.jpg"> M. Abbasi, C. Shui, A. Rajabi, C. Gagne, R. Bobba, “Towards metrics for differentiating Out-of-Distribution sets”, NeurIPS Workshop on Safety and Robustness in Decision-Making, 2019, and accepted in ECAI, 2020 (Oral, Acceptance rate ~26%). [**[PDF]**]()[**[Talk]**]()[**[Code]**]().
+*   <img width="250" height="200" style="vertical-align:middle" src="/images/ECAI.jpg"> M. Abbasi, C. Shui, A. Rajabi, C. Gagne, R. Bobba, “Towards metrics for differentiating Out-of-Distribution sets”, NeurIPS Workshop on Safety and Robustness in Decision-Making, 2019, and accepted in ECAI, 2020 (Oral, Acceptance rate ~26%). [**[PDF]**]()[**[Talk]**]()[**[Code]**]().
 
 
 
