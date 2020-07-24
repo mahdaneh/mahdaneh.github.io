@@ -4,7 +4,7 @@ layout: default
 
 
 # Bio
-I am the last-year P.h.D student at Electrical and Computer Engineering Department of Universite Laval under supervision of [Christian Gagne](http://vision.gel.ulaval.ca/~cgagne/) and [Denis Laurendeau](http://vision.gel.ulaval.ca/~laurend/). My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. 
+<ip> I am the last-year P.h.D student at Electrical and Computer Engineering Department of Universite Laval under supervision of [Christian Gagne](http://vision.gel.ulaval.ca/~cgagne/) and [Denis Laurendeau](http://vision.gel.ulaval.ca/~laurend/). My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. 
 
 
 
