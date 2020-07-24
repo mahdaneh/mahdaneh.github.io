@@ -10,8 +10,8 @@ I am the last-year P.h.D student at Electrical and Computer Engineering Departme
 
 # List of Publications
 
-*   [](/images/Our_proposal.jpg) M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
-*   M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 [Best paper award].
+*   [The](/images/Our_proposal.jpg) M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
+*   [The](/images/Ensemble.jpg)M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 [**Best paper award**].
 *   Item baz
 *   Item zip
 
