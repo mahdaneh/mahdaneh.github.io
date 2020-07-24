@@ -27,29 +27,18 @@
         {% endif %}
 
         {% if site.github.is_user_page %}
-        <ul>
+        <div class="row">
+        <div class="column">
          
-        <li><a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a></li>
-        <li><a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a></li>
-   <\ul>
+        <a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a>
+          <\div>
+        <div class="column">
+        <a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a>
+          </div>
+   
         {% endif %}
-       
-
-        {% if site.show_downloads %}
-        <ul class="downloads">
-          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-        </ul>
-        {% endif %}
-      </header>
-
-      <section>
-
-      {{ content }}
-
-      </section>
-     <div id="linkList">
+          {%if true%}
+          <div id="linkList">
         <div id="linkList2">
         <div id="lselect">
         <ul>
@@ -68,6 +57,24 @@
         </div>
           </div>
           </div>
+          {% endif %}
+       
+
+        {% if site.show_downloads %}
+        <ul class="downloads">
+          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
+          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+        </ul>
+        {% endif %}
+      </header>
+
+      <section>
+
+      {{ content }}
+
+      </section>
+     
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
