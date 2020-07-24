@@ -7,7 +7,8 @@ body {
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#050505;
   font-weight:400;
-  position:fixed
+  position:fixed;
+  float:left;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,7 +59,7 @@ a:hover small {
 
 .wrapper {
   width:auto;
-  margin:0 0;
+  margin:auto;
 }
 
 blockquote {
