@@ -17,6 +17,6 @@ layout: default
 
 
 
-[Visit my Teaching Materials](https://sites.google.com/site/cscabbasi/courses/cp92/lectures)
+
 
 
