@@ -4,8 +4,9 @@ layout: default
 
 
 # Bio
- I am the last-year P.h.D student at Electrical and Computer Engineering Department of Universite Laval under supervision of [Christian Gagne](http://vision.gel.ulaval.ca/~cgagne/) and [Denis Laurendeau](http://vision.gel.ulaval.ca/~laurend/). My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. 
+ I am the last-year P.h.D student at Electrical and Computer Engineering Department of [Universite Laval](https://www.ulaval.ca/en/)(UL) under supervision of [Christian Gagne](http://vision.gel.ulaval.ca/~cgagne/) and [Denis Laurendeau](http://vision.gel.ulaval.ca/~laurend/). My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. Before joining UL, I was a researcher master student at [Digitial Media Lab](http://dml.ir/), working on [3D human pose estimation](https://ieeexplore.ieee.org/document/7335521/) under supervision [H. Reza. Rabiee](http://sharif.edu/~rabiee/).
 
+#
 
 
 
