@@ -11,8 +11,8 @@ layout: default
 
 # List of Publications
 
-*   <img src="/images/Our_proposal.jpg">  M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
-*   < img src=/images/Ensemble.jpg>M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 [**Best paper award**].
+*   <img src="/images/Our_proposal.jpg", width="100", height="100", style="vertical-align:middle">  M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
+*   < img src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 [**Best paper award**].
 
 
 
