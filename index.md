@@ -10,7 +10,7 @@ I am the last-year P.h.D student at Electrical and Computer Engineering Departme
 
 ### List of Publications
 
-*   []() M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
+*   [](/images/Our_proposal.pdf) M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", https://arxiv.org/abs/2005.11549, 2020.
 *   Item bar
 *   Item baz
 *   Item zip
