@@ -28,14 +28,37 @@
 
         {% if site.github.is_user_page %}
         <div class="row">
-  <div class="column">
+         <div class="column">
         <p class="view"><a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a></p>
         </div>
-      <div class="column">
+        <div class="column">
         <p class="view"><a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png" width="40" height="40"></img></a></p>
-    </div>
-  </div>
+        </div>
+        </div>
         {% endif %}
+        <div id="linkList">
+
+        <div id="linkList2">
+
+        <div id="lselect">
+        <ul>
+          <li><a href=""><span
+            style="font-size: 9pt;font-family: Times New Roman,Times,serif">Home</span></a></li>
+          <li><a href="AcExp.html"><span
+            style="font-size:9pt;font-family: Times New Roman,Times,serif">Academic
+            Expriences</span></a></li>
+          <li><a href="course.html"><span
+            style="font-size: 9pt;font-family: Times New Roman,Times,serif">Teaching</span></a></li>
+          <li><a href="Mahdieh_CV.pdf"><span
+            style="font-size: 9pt;font-family: Times New Roman,Times,serif">Curriculum
+            Vitae</span></a></li>
+          <li><a href="pic.html"><span
+            style="font-size: 9pt;font-family: Times New Roman,Times,serif">Personal
+            Pictures</span></a></li>
+        </ul>
+        </div>
+          </div>
+          </div>
 
         {% if site.show_downloads %}
         <ul class="downloads">
@@ -45,17 +68,13 @@
         </ul>
         {% endif %}
       </header>
+
       <section>
 
       {{ content }}
 
       </section>
-      <footer>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
@@ -68,28 +87,6 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
-<div id="linkList">
 
-<div id="linkList2">
-
-<div id="lselect">
-<ul>
-  <li><a href=""><span
-    style="font-size: 9pt;font-family: Times New Roman,Times,serif">Home</span></a></li>
-  <li><a href="AcExp.html"><span
-    style="font-size:9pt;font-family: Times New Roman,Times,serif">Academic
-    Expriences</span></a></li>
-  <li><a href="course.html"><span
-    style="font-size: 9pt;font-family: Times New Roman,Times,serif">Teaching</span></a></li>
-  <li><a href="Mahdieh_CV.pdf"><span
-    style="font-size: 9pt;font-family: Times New Roman,Times,serif">Curriculum
-    Vitae</span></a></li>
-  <li><a href="pic.html"><span
-    style="font-size: 9pt;font-family: Times New Roman,Times,serif">Personal
-    Pictures</span></a></li>
-</ul>
-</div>
-  </div>
-  </div>
   </body>
 </html>
