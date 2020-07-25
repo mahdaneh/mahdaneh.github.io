@@ -21,7 +21,7 @@ layout: default
 <img width="250" height="200" style="vertical-align:middle" src="/images/Our_proposal.jpg"/>
  </div>
  <div class="text">
- M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020. <a href="https://arxiv.org/abs/2005.11549">[PDF]</a>, <a href=""><span >[Code]</a>.
+ M. Abbasi, D. Laurandeau, C. Gagné, "Self-supervised Robust Object Detectors from Partially Labelled Datasets", Arxiv Preprint, 2020. <span style="font-weight: bold"><a href="https://arxiv.org/abs/2005.11549">[PDF]</a>, <a href="">[Code]</a>.
   </div>
  </div>
 <img width="250" height="200" style="vertical-align:middle" src="/images/Ensemble.jpg">M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color:red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). [**[PDF]**](https://arxiv.org/pdf/2005.08321.pdf)[**[Talk]**](https://youtu.be/qFrkUeBjTMA)[**[Code]**]().
