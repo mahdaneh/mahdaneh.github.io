@@ -53,7 +53,7 @@ layout: default
 
 <div class="parent">
  <div class="img">
-<img width="250" height="200" style="vertical-align:middle" src="/images/MTL.jpg" >
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
    </div>
  <div class="text">
   
@@ -63,6 +63,17 @@ layout: default
 </div>
 
 
+<div class="parent">
+ <div class="img">
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+     </div>
+ <div class="text">
+M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convolutional Neural Networks (CNNs) with Out-Distribution Learning", Dependable and Secure Machine Learning (DSML), co-located with Dependable System Networks (DSN), 2018.
+ </div>
+ <div class="text">
+  
+  </div>
+</div>
 
 
 
