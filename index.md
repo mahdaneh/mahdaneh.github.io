@@ -30,6 +30,7 @@ layout: default
 <img width="250" height="200" style="vertical-align:middle" src="/images/Ensemble.jpg"/>
  </div>
  <div class="text">
+  
   M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color: red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). <span style="font-weight: bold"><a href="https://arxiv.org/pdf/2005.08321.pdf">[PDF]</a>, <a href="https://youtu.be/qFrkUeBjTMA">[Talk]</a>
   <a href="">[Code]</a></span>.
   
@@ -55,8 +56,9 @@ layout: default
 <img width="250" height="200" style="vertical-align:middle" src="/images/MTL.jpg" >
    </div>
  <div class="text">
+  
   C. Shui, M. Abbasi, L.E. Robitaille, B. Wang, C. Gagné, "A Principled Approach for Learning Task Similarity in Multitask Learning", International Joint Conference on Artificial Intelligence (IJCAI) 2019. (Poster, Acceptance rate ~18%). <span style="fond-wight: bold"><a href="">[PDF]</a>
- <a href="">[Poster]</a><a href="">[Code]</a></span>
+ <a href="/Posters/2019_07___Deep_Multitask___IJCAI_Poster.pdf">[Poster]</a><a href="">[Code]</a></span>
 </div>
 </div>
 
