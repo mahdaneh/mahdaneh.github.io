@@ -275,27 +275,24 @@ footer {
 
 
 div.parent{ 
-    border:solid black 1px;
     display:table;
-    padding:5px; 
     width:100%;
-    margin:5px 0; /* you can change/remove margin */
+    
 }
 div.text{ 
     
     vertical-align:middle;
     display:table-cell;
-    text-align:justify;
+    
 }
 div.parent .img{
     vertical-align:middle;
     display:table-cell;
-    padding-right:5px;
+    
     
 }
 div.img img{ 
     width:100%;
-    
     vertical-align:middle;
 }
 
