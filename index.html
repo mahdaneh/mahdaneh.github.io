@@ -1,3 +1,66 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+    
+      <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+        
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% endif %}
+
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        {% if site.github.is_project_page %}
+        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
+        {% endif %}
+
+        {% if site.github.is_user_page %}
+        
+        <a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png"  style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"></img></a>
+      
+        <a href="https://www.linkedin.com/in/mahdieh-abbasi-2ba84b44/"><img src="/images/LK.png"  style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"></img></a>
+    <p style="clear: both;">
+       
+        {% endif %}
+          {%if true%}
+       <div>
+        <ul>
+          
+          
+          <li><a href="./index.html"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Home</span></a></li>
+          
+          <li><a href="./Mahdieh_CV.pdf"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Curriculum
+            Vitae</span></a></li>
+          <li><a href="/Blog.html"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Blog</span></a></li>
+          <li><a href="https://sites.google.com/site/cscabbasi/courses"><span
+            style="font-size:20pt;font-family: Times New Roman,Times,serif">Teaching</span></a></li>
+          
+        </ul>
+         </div>
+       
+          {% endif %}
+      
+      </header>
+
+      <section>
+
+      
 <h1 id="bio">Bio</h1>
 <p>I am a last-year P.h.D student at <a href="https://www.gelgif.ulaval.ca/accueil/">Electrical and Computer Engineering Department</a> of <a href="https://www.ulaval.ca/en/">Universite Laval</a>(UL) under supervision of <a href="http://vision.gel.ulaval.ca/~cgagne/">Christian Gagne</a> and <a href="http://vision.gel.ulaval.ca/~laurend/">Denis Laurendeau</a>. My current research revolves around dependeble and secure learning models to adversarial examples and Out-of-Distribution samples. Before joining UL, I was a researcher master student at <a href="http://dml.ir/">Digitial Media Lab</a> of <a href="http://www.en.sharif.edu/">Sharif University of Technology</a>, working on <a href="https://ieeexplore.ieee.org/document/7335521/">3D human pose estimation</a> under supervision <a href="http://sharif.edu/~rabiee/">H. Reza. Rabiee</a>.</p>
 <h1 id="my-research-interests">My Research Interests</h1>
@@ -81,3 +144,12 @@ F. Kiaee, C. Gagné, M.Abbasi, &quot;Alternating Direction Method of Multipliers
 M. Abbasi, H. R. Rabiee, and C. Gagné. &quot;Monocular 3D Human Pose Estimation with a Semi-supervised Graph-based Method.&quot; International Conference on 3DVision, IEEE, 2015. [Oral, 15% acceptance rate for oral]
 </div>
 </div>
+
+      </section>
+  </div>
+
+  </body>
+</html>
+
+
+
