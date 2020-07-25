@@ -56,7 +56,7 @@ layout: default
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="400" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
    </div>
  <div class="text">
   
