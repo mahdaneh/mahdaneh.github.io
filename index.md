@@ -113,7 +113,7 @@ M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convoluti
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/3DV15.jpg" />
      </div>
  <div class="text">
   M. Abbasi, H. R. Rabiee, and C. Gagné. "Monocular 3D Human Pose Estimation with a Semi-supervised Graph-based Method." International Conference on 3DVision, IEEE, 2015. [Oral, 15% acceptance rate for oral]
