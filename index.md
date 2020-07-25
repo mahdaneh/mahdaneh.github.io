@@ -31,7 +31,7 @@ layout: default
  </div>
  <div class="text">
   
-  M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<span style="color: red"><a href="https://www.caiac.ca/en/conferences/canadianai-2020/home">Best paper award</a></span>). <span style="font-weight: bold"><a href="https://arxiv.org/pdf/2005.08321.pdf">[PDF]</a>, <a href="https://youtu.be/qFrkUeBjTMA">[Talk]</a>
+  M. Abbasi, A. Rajabi, C. Gagne, R. Bobba, “Toward Adversarial Robustness by Diversity in an Ensemble of Specialized Deep Neural Networks”, Long paper in Canadian Conference on AI, 2020 (<a href="https://www.caiac.ca/en/conferences/canadianai-2020/home"><span style="color: red">Best paper award</span></a>). <span style="font-weight: bold"><a href="https://arxiv.org/pdf/2005.08321.pdf">[PDF]</a>, <a href="https://youtu.be/qFrkUeBjTMA">[Talk]</a>
   <a href="">[Code]</a></span>.
   
   </div>
