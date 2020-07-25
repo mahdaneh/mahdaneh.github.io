@@ -100,7 +100,7 @@ M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convoluti
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/ADMM.jpg" />
      </div>
  <div class="text">
   F. Kiaee, C. Gagné, M.Abbasi, "Alternating Direction Method of Multipliers for Sparse Convolutional Neural Networks.", arXiv:1708.04788, 2017
