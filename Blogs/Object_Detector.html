@@ -72,17 +72,17 @@
   
     Several scenarios can lead to a parially labelled datasets:
     <ul>
-      <li><span style="font_weight: bold">Unintentional error in labelling</span></li>
-      <li> <span style="font_weight: bold">Partial annotation policy </span>:To reduce annotation cost, "partial annotation policy" considers 
+      <li><span style="font-weight: bold">Unintentional error in labelling</span></li>
+      <li> <span style="font-weight: bold">Partial annotation policy </span>:To reduce annotation cost, "partial annotation policy" considers 
         to annotate only one instance of each object presented in a given image. For example, in an image containing a herd of sheep, only one sheep is annotated, instead of fully annotating all the sheep instances in the image. This policy causes some missing bounding box
         annotations but interestingly no missing image-level labels as at least one instance of each existing object in the given image is annotated.</li>
-      <li><span style="font_weight: bold">Merged dataset</span>  we aim at combining several datasets from similar (or the same) contexts but with disjoint 
-        (or partially disjoint) sets of Objects of Interest (OoI), in order to <span style="font_weight: bold">efficiently</span> construct a larger dataset that
+      <li><span style="font-weight: bold">Merged dataset</span>  we aim at combining several datasets from similar (or the same) contexts but with disjoint 
+        (or partially disjoint) sets of Objects of Interest (OoI), in order to <span style="font-weight: bold">efficiently</span> construct a larger dataset that
         includes a wider range of objects of interest. For instance, Kitti and German Traffic Signs are
         two different datasets with two disjoint sets of OoIs that could be merged to cover a wider spectrum of objects appearing on roads. Furthermore,
         merging the datasets that include the object of interest from across different domains --\ie the objects appeared in different poses, illuminations, styles, 
-        etc-- have the potential to also mitigate the domain-shift challenge. <span style="font_weight: bold; color: blue">To read more about merged datasets, interested readers can 
-        read our <a href=""> article </a></li>
+        etc-- have the potential to also mitigate the domain-shift challenge. <span style="font-weight: bold; color: blue">To read more about merged datasets, interested readers can 
+        read our <a href="https://arxiv.org/abs/2005.11549"> article </a></li>
       
       </ul>
       
