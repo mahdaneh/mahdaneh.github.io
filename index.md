@@ -87,7 +87,7 @@ M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convoluti
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/ICL17.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/ICLR17.jpg" />
      </div>
  <div class="text">
   M. Abbasi, and C. Gagné. "Robustness to Adversarial Examples through an Ensemble of Specialists." International Conference on Learning Representations (ICLR) Workshop, 2017.
