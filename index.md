@@ -70,12 +70,56 @@ layout: default
  <div class="text">
 M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convolutional Neural Networks (CNNs) with Out-Distribution Learning", Dependable and Secure Machine Learning (DSML), co-located with Dependable System Networks (DSN), 2018.
  </div>
- <div class="text">
-  
-  </div>
+ 
 </div>
 
 
+<div class="parent">
+ <div class="img">
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+     </div>
+ <div class="text">
+  M. Abbasi, A. Rajabi, A.S. Mozafari, R.B. Bobba, C. Gagné, "Controlling Over-generalization and its Effect on Adversarial Examples Generation and Detection", arXiv: 1808.08282, 2018.
+  </div>
+ 
+</div>
+
+
+<div class="parent">
+ <div class="img">
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+     </div>
+ <div class="text">
+  M. Abbasi, and C. Gagné. "Robustness to Adversarial Examples through an Ensemble of Specialists." International Conference on Learning Representations (ICLR) Workshop, 2017.
+  </div>
+ 
+</div>
+
+
+
+
+<div class="parent">
+ <div class="img">
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+     </div>
+ <div class="text">
+  F. Kiaee, C. Gagné, M.Abbasi, "Alternating Direction Method of Multipliers for Sparse Convolutional Neural Networks.", arXiv:1708.04788, 2017
+  </div>
+ 
+</div>
+
+
+
+
+<div class="parent">
+ <div class="img">
+<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+     </div>
+ <div class="text">
+  M. Abbasi, H. R. Rabiee, and C. Gagné. "Monocular 3D Human Pose Estimation with a Semi-supervised Graph-based Method." International Conference on 3DVision, IEEE, 2015. [Oral, 15% acceptance rate for oral]
+  </div>
+ 
+</div>
 
 
 
