@@ -65,7 +65,7 @@ layout: default
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/DSML.jpg" />
      </div>
  <div class="text">
 M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convolutional Neural Networks (CNNs) with Out-Distribution Learning", Dependable and Secure Machine Learning (DSML), co-located with Dependable System Networks (DSN), 2018.
@@ -76,7 +76,7 @@ M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convoluti
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/A-CNN.jpg" />
      </div>
  <div class="text">
   M. Abbasi, A. Rajabi, A.S. Mozafari, R.B. Bobba, C. Gagné, "Controlling Over-generalization and its Effect on Adversarial Examples Generation and Detection", arXiv: 1808.08282, 2018.
@@ -87,7 +87,7 @@ M. Abbasi, A. Rajabi, C. Gagné, R. B. Bobba, "Towards Dependable Deep Convoluti
 
 <div class="parent">
  <div class="img">
-<img width="300" height="200" style="vertical-align:middle" src="/images/MTL.jpg" />
+<img width="300" height="200" style="vertical-align:middle" src="/images/ICL17.jpg" />
      </div>
  <div class="text">
   M. Abbasi, and C. Gagné. "Robustness to Adversarial Examples through an Ensemble of Specialists." International Conference on Learning Representations (ICLR) Workshop, 2017.
