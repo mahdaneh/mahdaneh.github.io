@@ -548,6 +548,27 @@ footer {
   }
 }
 
+div.parent{ 
+    display:table;
+    width:100%;
+    
+}
+div.text{ 
+    
+    vertical-align:middle;
+    display:table-cell;
+    
+}
+div.parent .img{
+    vertical-align:middle;
+    display:table-cell;
+    
+    
+}
+div.img img{ 
+    width:100%;
+    vertical-align:middle;
+}
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;
