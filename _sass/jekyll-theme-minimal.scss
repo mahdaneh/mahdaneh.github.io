@@ -296,38 +296,7 @@
 //     vertical-align:middle;
 // }
 
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@mahdaneh 
-pages-themes
-/
-minimal
-17
-6391.7k
-Code
-Issues
-2
-Pull requests
-3
-Actions
-Security
-Insights
-minimal/_sass/jekyll-theme-minimal.scss
-@quytelda
-quytelda Add 'downloads' SCSS class for download lists
-…
-Latest commit 69701fe on 24 May 2018
- History
- 4 contributors
-@mgifford@quytelda@ousia@benbalter
-272 lines (222 sloc)  3.42 KB
- 
 @import "fonts";
 @import "rouge-github";
 
@@ -435,7 +404,7 @@ img {
 }
 
 header {
-  width:270px;
+  width:170px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -502,7 +471,7 @@ strong {
 }
 
 section {
-  width:500px;
+  width:700px;
   float:right;
   padding-bottom:50px;
 }
