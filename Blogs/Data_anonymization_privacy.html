@@ -2,6 +2,14 @@
 
 layout: default
 ---
+<head>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
 
 
     <section>
@@ -28,7 +36,7 @@ Therefore, before sharing these sensitive data with the third-party research ins
 To address both these criteria (privacy v.s. utility), one requires to devise a method to generate <b>synthetic anonymized data</b> that I) pertains the statistical properties of the original data (measured by a utility metric) while II) preserving the privacy of customers information (which can be quantified by a privacy metric) ().
 <figure>
 
-<img src="/Blogs/synthetic_data.png" width="300" height="300" />
+<img src="/Blogs/synthetic_data.png"/>
 <figcaption>Data generative model should consider to keep the statistical properties of the original data while preserving the privacy of customers information</figcaption>
 </figure>
 
@@ -43,10 +51,12 @@ or censor them without hurting the utility while keeping the privacy risk, e.g. 
 <h2> Modified GANs to Comply with Our Needs</h2>
 
 
+<p>
 Generally speaking, GAN, as a generative model, learn to estimate distribution of data, then through sampling from this estimated data distribution, many data samples can be generated. GAN  is  originally  proposed  for  image  datasets,  where  the data  samples  contain  real-value  features, and is trained regardless of any privacy measurements.  In this post, we aim to generate privacy-preserved synthetic tabular data with categorical, discrete, binary or mixed features (data attributes). To adopt the original GAN to generate discrete-value anonymized features, we review <b>MedGAN</b> and DP-GAN.
+</p>
 <h3> MedGAN</h3>
 <p>
-In order to generate synthetic discrete-value, they incorporate an encoder-decoder. The pre-trained encoder ($Enc(\cdot)$) maps each real record represented by $\mathbf{x}\in\mathcal{Z}_{+}^{D}$ (from a $D$-dimensional discrete-value space) into a continuous feature space, then the decoder ($Dec(\cdot)$) maps it back to the discrete-value space. The generator $G(\cdot)$ takes in random prior $\mathbf{z}$ to generate continuous-value feature ($G(\mathbd{z})$), which then maps back to the discrete-value space by $Dec (G(\mathbf{z})) $. Finally, the discriminator is trained to distinguish the generated samples from the real samples. </p>
+In order to generate synthetic discrete-value, they incorporate an encoder-decoder. The pre-trained encoder (\Enc(\cdot)\) maps each real record represented by $\mathbf{x}\in\mathcal{Z}_{+}^{D}$ (from a $D$-dimensional discrete-value space) into a continuous feature space, then the decoder ($Dec(\cdot)$) maps it back to the discrete-value space. The generator $G(\cdot)$ takes in random prior $\mathbf{z}$ to generate continuous-value feature ($G(\mathbd{z})$), which then maps back to the discrete-value space by $Dec (G(\mathbf{z})) $. Finally, the discriminator is trained to distinguish the generated samples from the real samples. </p>
 
 <p>
 The privacy of MedGAN's data generated has been empirically assessed by different privacy metrics~\cite{choi2017generating,goncalves2020generation}, but it is better if the generative model can be explicitly trained somehow for encouraging privacy.
