@@ -1,0 +1,85 @@
+
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="../style.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+  
+<body>
+    <div class="wrapper">
+    
+      <header>
+    
+          <img src="/images/IMG_0505.jpeg" alt="Logo" />
+        <span>mahdieh.abbasi.1@ulaval.ca</span>
+        
+        <a href="https://scholar.google.ca/citations?user=IIJuvsYAAAAJ&hl=en"><img src="/images/GS.png"  style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"></img></a>
+        <a href="https://github.com/mahdaneh"><img src="/images/GH.png"  style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"></img></a>
+        <a href="https://www.linkedin.com/in/mahdieh-abbasi-2ba84b44/"><img src="/images/LK.png"  style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"></img></a>
+    <p style="clear: both;">
+       
+       
+       <div>
+        <ul>
+          
+          
+          <li><a href="../index.html"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Home</span></a></li>
+          
+          <li><a href="../publications.html"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Publications</span></a></li>
+          
+          
+          <li><a href="../Blog.html"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Blog</span></a></li>
+          <li><a href="https://sites.google.com/site/cscabbasi/courses"><span
+            style="font-size:20pt;font-family: Times New Roman,Times,serif">Teaching</span></a></li>
+          <li><a href="../Mahdieh_CV.pdf"><span
+            style="font-size: 20pt;font-family: Times New Roman,Times,serif">Curriculum
+            Vitae</span></a></li>
+          
+        </ul>
+         </div>
+       
+         
+      
+      </header>
+
+    <section>
+      <h1>Anonymized Synthetic Data Generation</h1>
+  <h2> Introduction</h2>
+  
+<p>
+  
+  
+
+  
+  
+ Many financial institutions aims to enhance the quality of their service by extracting some data-driven insights from  their customers records using machine learning and data mining techniques. 
+To this end, they need to make such large-scale datasets available to trusted research institutions and partners.
+However, such datasets cannont be shared directly without threatening the privacy of the individuals concerned. 
+Therefore, it is obligatory for them to anonymize their customers information, which is often sensitive and personal, to protect the customers data privacy. On the other hand, the anonymized data, which are enough difficult or even impossible to re-identify the customers, should preserve the statistical properties and the existing patterns of the original data so that it allows the machine learning techniques to extract and learn these patterns for a variety of tasks,\eg predictive models. This leads us to a dilemma; <b>privacy v.s. utility</b>.
+
+
+To address this challenge (privacy v.s. utility), we aim to generate <b>synthetic anonymized data</b> that pertains the statistical properties of the original data (measured by a utility metric), 
+while preserving privacy of the involved information of the customers (quantified by a privacy metric).
+To create such synthetic anonymized data, one can either fully or partially synthetic data. In the former,
+all the features (attributes) of a given dataset are considered as sensitive data, thus analysts should generate fully
+synthetic data records to be used instead of the original data records.
+While in the latter, regarding some features as sensitive, the analysts tend to either synthesize values for these attributes
+or censor them without hurting the utility while keeping the privacy risk, e.g. identity disclosure, low.
+</p>
+  
+    
+    </section>
+  </div>
+  
+</body>
+</html>
