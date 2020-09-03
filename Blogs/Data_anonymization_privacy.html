@@ -17,7 +17,7 @@ layout: default
   <h2> Why to generate synthetic data?</h2>
   
 <p>
- Many industries from insurance companies to financial institutions to care-providing agencies have access to an ocean of information that can be used for making more informed decisions and recognizing new strategies and policies to not only increase their profits but also enhance the quality of their services, resulting in customers satisfaction. Machine learning and data mining techniques can effectively extract some data-driven insights from such tremendously large and rich datasets if they can be shared with the trusted research institutions.
+ Many industries from insurance companies to financial institutions to care-providing agencies have access to an ocean of information (in terms of tabular data) that can be used for making more informed decisions and recognizing new strategies and policies to not only increase their profits but also enhance the quality of their services, resulting in customers satisfaction. Machine learning and data mining techniques can effectively extract some data-driven insights from such tremendously large and rich datasets if they can be shared with the trusted research institutions.
 However, these datasets can not be shared simply since such datasets usually contain an enormous amount of sensitive and personal information, which can drastically threaten the privacy of the customers.
 Therefore, before sharing these sensitive data with the third-party research institutions, the holders of these datasets have to guarantee and preserve the privacy of their customers' information. Data anonymization is one of the ways for preserving data privacy as it aims to make de-identification attacks very hard or preferably impossible. In meantime, the anonymized data should preserve the statistical properties and the patterns existed in the original but unprotected data in order to allows the machine learning techniques to extract and learn these patterns for a variety of tasks, such as predictive models. This leads us to a dilemma; <b>privacy v.s. utility</b>.
 </p>
@@ -40,8 +40,18 @@ or censor them without hurting the utility while keeping the privacy risk, e.g. 
 
 </p>
 
-<h2> DP-GAN</h2>
+<h2> Modified GANs to Comply with Our Needs</h2>
 
+
+Generally speaking, GAN, as a generative model, learn to estimate distribution of data, then through sampling from this estimated data distribution, many data samples can be generated. GAN  is  originally  proposed  for  image  datasets,  where  the data  samples  contain  real-value  features, and is trained regardless of any privacy measurements.  In this post, we aim to generate privacy-preserved synthetic tabular data with categorical, discrete, binary or mixed features (data attributes). To adopt the original GAN to generate discrete-value anonymized features, we review <b>MedGAN</b> and DP-GAN.
+<h3> MedGAN</h3>
+<p>
+In order to generate synthetic discrete-value, they incorporate an encoder-decoder. The pre-trained encoder ($Enc(\cdot)$) maps each real record represented by $\mathbf{x}\in\mathcal{Z}_{+}^{D}$ (from a $D$-dimensional discrete-value space) into a continuous feature space, then the decoder ($Dec(\cdot)$) maps it back to the discrete-value space. The generator $G(\cdot)$ takes in random prior $\mathbf{z}$ to generate continuous-value feature ($G(\mathbd{z})$), which then maps back to the discrete-value space by $Dec (G(\mathbf{z})) $. Finally, the discriminator is trained to distinguish the generated samples from the real samples. </p>
+
+<p>
+The privacy of MedGAN's data generated has been empirically assessed by different privacy metrics~\cite{choi2017generating,goncalves2020generation}, but it is better if the generative model can be explicitly trained somehow for encouraging privacy.
+  </p>  
+<h3>DP GAN</h3>
 
 
   
