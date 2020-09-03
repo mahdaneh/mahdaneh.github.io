@@ -13,20 +13,18 @@ layout: default
   
 
   
-  
- Many financial institutions aims to enhance the quality of their service by extracting some data-driven insights from  their customers records using machine learning and data mining techniques. 
-To this end, they need to make such large-scale datasets available to trusted research institutions and partners.
-However, such datasets cannont be shared directly without threatening the privacy of the individuals concerned. 
-Therefore, it is obligatory for them to anonymize their customers information, which is often sensitive and personal, to protect the customers data privacy. On the other hand, the anonymized data, which are enough difficult or even impossible to re-identify the customers, should preserve the statistical properties and the existing patterns of the original data so that it allows the machine learning techniques to extract and learn these patterns for a variety of tasks,\eg predictive models. This leads us to a dilemma; <b>privacy v.s. utility</b>.
+ Many industries from insurance companies to financial institutions to care-providing agencies have access to an ocean of information that can be used for making more informed decisions and recognizing new strategies and policies among others, which not only results in an increase in their profits but also enhance the quality of their services, resulting in customers satisfaction. Machine learning and data mining techniques can effectively extract some data-driven insights from such tremendously large and rich datasets if they can be shared with the trusted research institutions or their research partners.
+However, these datasets can not be shared simply since such datasets usually contain an enormous amount of sensitive and personal information, which can drastically threaten the privacy of the customers.
+Therefore, before sharing these sensitive data with the third-party research institutions, the holders of these datasets have to guarantee and preserve the privacy of their customers' information. Data anonymization is one of the ways for preserving data privacy as it aims to make de-identification attacks very hard or preferably impossible. In meantime, the anonymized data should preserve the statistical properties and the existing patterns of the original unprotected data so that it allows the machine learning techniques to extract and learn these patterns for a variety of tasks, such as predictive models. This leads us to a dilemma; <b>privacy v.s. utility</b>.
 
 
-To address this challenge (privacy v.s. utility), we aim to generate <b>synthetic anonymized data</b> that pertains the statistical properties of the original data (measured by a utility metric), 
-while preserving privacy of the involved information of the customers (quantified by a privacy metric).
-To create such synthetic anonymized data, one can either fully or partially synthetic data. In the former,
+To address both these criteria (privacy v.s. utility), one requires to generate <b>synthetic anonymized data</b> that I) pertains the statistical properties of the original data (measured by a utility metric) while II) preserving the privacy of customers information (which can be quantified by a privacy metric).
+To create such synthetic anonymized data, one can either <b>fully or partially synthetic data</b>. In the former,
 all the features (attributes) of a given dataset are considered as sensitive data, thus analysts should generate fully
 synthetic data records to be used instead of the original data records.
 While in the latter, regarding some features as sensitive, the analysts tend to either synthesize values for these attributes
 or censor them without hurting the utility while keeping the privacy risk, e.g. identity disclosure, low.
+</p>
 </p>
   
     
