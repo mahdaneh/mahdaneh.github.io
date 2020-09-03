@@ -6,8 +6,8 @@ layout: default
 
     <section>
       <h1>Anonymized Synthetic Data Generation by DP-GAN</h1>
-
-<img width="100" height="100" style="vertical-align:middle" src="/Blogs/icon_image.png"/>
+<h3> Overview:</h3> <b>In this post, I aim to briefly review Differntial Privacy Generative Adversarial Network (DP-GAN) as a generative model to synthesize anonymous data samples.</b>
+<img width="100" height="100" style="vertical-align:middle" src="/Blogs/icon_image.jpg"/>
 
   <h2> Why to generate synthetic data?</h2>
   
@@ -21,7 +21,13 @@ Therefore, before sharing these sensitive data with the third-party research ins
 
 <p>
 
-To address both these criteria (privacy v.s. utility), one requires to generate <b>synthetic anonymized data</b> that I) pertains the statistical properties of the original data (measured by a utility metric) while II) preserving the privacy of customers information (which can be quantified by a privacy metric).
+To address both these criteria (privacy v.s. utility), one requires to devise a method to generate <b>synthetic anonymized data</b> that I) pertains the statistical properties of the original data (measured by a utility metric) while II) preserving the privacy of customers information (which can be quantified by a privacy metric) ().
+<figure>
+
+<img src="Blogs/synthetic_data.png"/>
+<figcaption>Data generative model should consider to keep the statistical properties of the original data while preserving the privacy of customers information</figcaption>
+</figure>
+
 To create such synthetic anonymized data, one can either <b>fully or partially synthetic data</b>. In the former,
 all the features (attributes) of a given dataset are considered as sensitive data, thus analysts should generate fully
 synthetic data records to be used instead of the original data records.
@@ -29,6 +35,9 @@ While in the latter, regarding some features as sensitive, the analysts tend to 
 or censor them without hurting the utility while keeping the privacy risk, e.g. identity disclosure, low.
 
 </p>
+
+<h2> DP-GAN</h2>
+
   
     
     </section>
