@@ -572,27 +572,6 @@ div.img img{
 
 
 
-div.parent2{ 
-    display:table;
-    width:100%;
-    
-}
-div.text2{ 
-    
-    vertical-align:middle;
-    display:table-cell;
-    
-}
-div.parent2 .img{
-    vertical-align:middle;
-    display:table-cell;
-    
-    
-}
-div.img2 img{ 
-    width:50%;
-    vertical-align:middle;
-}
 
 @media print, screen and (max-width: 480px) {
   body {
