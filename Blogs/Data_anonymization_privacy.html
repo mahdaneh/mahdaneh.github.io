@@ -25,7 +25,7 @@ layout: default
 
 <br>
 
-  <h2> Why to generate synthetic data?</h2>
+  <h2> 1. Why to generate synthetic data?</h2>
   
 <p>
  Many industries from insurance companies to financial institutions to care-providing agencies have access to an ocean of information (in terms of tabular data) that can be used for making more informed decisions and recognizing new strategies and policies to not only increase their profits but also enhance the quality of their services, resulting in customers satisfaction. Machine learning and data mining techniques can effectively extract some data-driven insights from such tremendously large and rich datasets if they can be shared with the trusted research institutions.
@@ -41,7 +41,7 @@ To address both these criteria (privacy v.s. utility), one requires to devise a 
 <figure>
 
 <img src="/Blogs/synthetic_data.png"/>
-<figcaption>Data generative model should consider to keep the statistical properties of the original data while preserving the privacy of customers information</figcaption>
+<figcaption>A data generative model (named as <bf>synthesis in the figure) should consider to keep the statistical properties of the original data (<bf>utility assessment</bf>) while preserving privacy of customers information (<bf>privacy assurance</bf>)</figcaption>
 </figure>
 <br>
 To create such synthetic anonymized data, one can either <b>fully or partially synthetic data</b>. In the former,
@@ -50,24 +50,29 @@ synthetic data records to be used instead of the original data records.
 While in the latter, regarding some features as sensitive, the analysts tend to either synthesize values for these attributes
 or censor them without hurting the utility while keeping the privacy risk, e.g. identity disclosure, low.
 
+<br>
 
-
-<h2> Modified GANs to Comply with Our Needs</h2>
+<h2> 2. Modified GANs to Comply with Our Needs</h2>
 
 
 <p>
 Generally speaking, GAN, as a generative model, learn to estimate distribution of data, then through sampling from this estimated data distribution, many data samples can be generated. GAN  is  originally  proposed  for  image  datasets,  where  the data  samples  contain  real-value  features, and is trained regardless of any privacy measurements.  In this post, we aim to generate privacy-preserved synthetic tabular data with categorical, discrete, binary or mixed features (data attributes). To adopt the original GAN to generate discrete-value anonymized features, we review <b>MedGAN</b> and DP-GAN.
 </p>
 
-<h3> MedGAN</h3>
+<h3> 2.1. MedGAN</h3>
 <br>
 <p>
 In order to generate synthetic discrete-value, they incorporate an encoder-decoder. The pre-trained encoder ($Enc(\cdot)$) maps each real record represented by $\mathbf{x}\in\mathcal{Z}_{+}^{D}$ (from a $D$-dimensional discrete-value space) into a continuous feature space, then the decoder ($Dec(\cdot)$) maps it back to the discrete-value space. The generator $G(\cdot)$ takes in random prior $\mathbf{z}$ to generate continuous-value feature ($G(\mathbd{z})$), which then maps back to the discrete-value space by $Dec (G(\mathbf{z})) $. Finally, the discriminator is trained to distinguish the generated samples from the real samples. </p>
-
+<br>
+<figure>
+<img src="/Blogs/medGAn.png">
+</figure>
 <p>
 The privacy of MedGAN's data generated has been empirically assessed by different privacy metrics~\cite{choi2017generating,goncalves2020generation}, but it is better if the generative model can be explicitly trained somehow for encouraging privacy.
   </p>  
-<h3>DP GAN</h3>
+<h3>2.3. DP GAN</h3>
+
+Differential Privacy is a principled and rigorous framework to assure data privacy.
 
 
   
