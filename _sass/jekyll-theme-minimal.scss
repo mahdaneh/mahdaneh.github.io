@@ -571,6 +571,16 @@ div.img img{
 }
 
 
+div.parent .img2{
+    vertical-align:middle;
+    display:table-cell;
+    
+    
+}
+div.img2 img{ 
+    width:50%;
+    vertical-align:middle;
+}
 
 
 @media print, screen and (max-width: 480px) {
