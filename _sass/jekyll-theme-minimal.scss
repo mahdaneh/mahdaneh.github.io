@@ -681,7 +681,7 @@ li {
 
 
 .media:first-child {
-    margin-top: 0;
+    margin-top: 3px;
 }
 .media, .media .media {
     margin-top: 15px;
@@ -700,24 +700,6 @@ div {
     display: block;
 }
 
-.media>.pull-left {
-    margin-right: 10px;
-}
-.pull-left {
-    float: left!important;
-}
-.text-center {
-    text-align: center;
-}
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-div {
-    display: block;
-}
 
 .media>.pull-left {
     margin-right: 5px;
