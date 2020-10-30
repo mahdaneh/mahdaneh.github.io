@@ -68,8 +68,8 @@ layout: default
       <p>YOLO divides a given image $I$ 
       into $g\times g$ grids, then for each grid $G_{ij}$, it estimates $A$ different bounding-boxes,
       where each of them is a $5+K$-dimensional vector, encompassing the estimated coordinate information of the box 
-      (i.e. $\mathbf{r}^a_{G_{ij}}=\left[\hat{x}^a_{G_{ij}},\hat{y}^a_{G_{ij}}, \hat{w}^a_{G_{ij}}, \hat{h}^a_{G_{ij}} \right]$),
-      the objectiveness probability (i.e. $p(O|\mathbf{r}^a_{G_{ij}})$), and a $K$-dimensional vector as the probabilities over $K$ object categorizes (i.e. $\textbf{p}(c|\mathbf{r}^a_{G_{ij}})\in[0,1]^K$) with $a\in\{1,\dots A\}$. Therefore, the output of YOLO will be a tensor of size $\left[g,g,A,5+K\right]$ (Fig.~\ref{yolo}). 
+      ($\mathbf{r}^a_{G_{ij}}=\left[\hat{x}^a_{G_{ij}},\hat{y}^a_{G_{ij}}, \hat{w}^a_{G_{ij}}, \hat{h}^a_{G_{ij}} \right]$),
+      the objectiveness probability ($p(O|\mathbf{r}^a_{G_{ij}})$), and a $K$-dimensional vector as the probabilities over $K$ object categorizes ($\textbf{p}(c|\mathbf{r}^a_{G_{ij}})\in[0,1]^K$) with $a\in\{1,\dots A\}$. Therefore, the output of YOLO will be a tensor of size $\left[g,g,A,5+K\right]$.
       Moreover, for each grid ${G_{ij}}$, a set of pre-defined bounding-boxes (called anchors) with different aspect ratios and scales is considered. 
         YOLO learns to estimates the bounding-boxes w.r.t these pre-defined anchors.</p>
       
