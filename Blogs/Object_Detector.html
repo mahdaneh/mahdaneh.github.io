@@ -4,11 +4,24 @@ layout: default
 ---
 
 <head>
-<script type="text/x-mathjax-config">
+<!--<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
   src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 </head>
 
@@ -55,9 +68,9 @@ layout: default
       (i.e. mean average of precision ) of object detectors, particularly YOLO and faster R-CNN. <b>to be continued</b>
       
       
+      <p>
       
-      
-      $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$
+        $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$</p>
       
     </section>
 
