@@ -38,11 +38,11 @@ layout: default
 
 
   
-  
+  <h2>When do datasets for object detection tasks contain missing-label instances?</h2>
 
 </p>
   
-    Several scenarios can lead to a parially labelled dataset:
+    Several scenarios can lead to a partially labelled dataset:
     <ul>
       <li><b>Unintentional error in labelling</b></li>
       <li> <b>Partial annotation policy </b>:To reduce annotation cost, "partial annotation policy" considers 
@@ -57,6 +57,7 @@ layout: default
       <img width="50%" src="img_object_detector/merged.png">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
       </ul>
       
+      <h2>Notations</h2>
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
@@ -77,12 +78,12 @@ layout: default
 
 
       
-      <h2> The Impact of Missing-label Instances on Performance</h2>
+      <h2> How do missing-label instances degrade detection performance?</h2>
       
 While UPIs do not contribute to the training of YOLO through their "class" and "coordinate" losses, they can adversely contribute through their "object" loss. In contrast to class and coordinate losses, the object loss is computed for all anchors of all grids, whether they contain any ground-truths or not. The computation of object loss for UPIs causes false-negative training signals, leading to a degradation of performance. More specifically, during the training of YOLO, the detector may be able to correctly localize a UPI, estimating its corresponding anchor with $p(O)\sim1$. However, since it has no associated ground-truth label, it is given true object label zero, i.e. $t=0$. This false-negative training signal forces the network to learn a UPI as a negative or not-interesting object even though the model can correctly localize and recognize it. Ultimately, such a false negative signal from a UPI can confuse the network since the LPIs (Labelled Positive Instance) of the same object category forces the network to learn it as an object of interest while the UPIs from the same object category encourage the network to learn it as a not-interesting (negative) object. Therefore, such false-negative signals can cause a drop in the performance of YOLO.      
  
 
-<h2> How to Overcome This Problem</h2>
+<h2> How to overcome this performance degradation?</h2>
 Generally speaking, there are two solutions for this problem arise from UPIs; ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="">here </a>.
      
     </section>
