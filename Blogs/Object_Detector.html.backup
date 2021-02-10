@@ -58,7 +58,7 @@ layout: default
         etc-- have the potential to also mitigate the domain-shift challenge.</li>
       
       </ul>
-      <img src="img_object_detector/merged.png">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img>
+      <img src="img_object_detector/merged.png">Merging several datasets to quic</img>
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
