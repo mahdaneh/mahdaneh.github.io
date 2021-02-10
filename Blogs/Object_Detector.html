@@ -52,13 +52,11 @@ layout: default
         
       <li><b>Merged dataset</b>  Combining several datasets from similar (or the same) contexts but with disjoint 
         (or partially disjoint) sets of Objects of Interest (OoI) for <b>quickly</b> constructing a larger dataset that
-        includes a wider range of objects of interest. For instance, Kitti and German Traffic Signs are
-        two different datasets with two disjoint sets of OoIs that could be merged to cover a wider spectrum of objects appearing on roads. Furthermore,
-        merging the datasets that include the object of interest from across different domains --i.e. the objects appeared in different poses, illuminations, styles, 
-        etc-- have the potential to also mitigate the domain-shift challenge.</li>
-      
+        includes a wider range of objects of interest. For instance, <a href="http://www.cvlibs.net/datasets/kitti/">Kitti</a> and <a href="https://bdd-data.berkeley.edu/">BDDK100</a> are
+        two different datasets for roads with two disjoint sets of OoIs that could be merged to cover a wider spectrum of variations (light, style, and etc ) and various road objects.
+      <img width="50%" src="img_object_detector/merged.png">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
       </ul>
-      <img src="img_object_detector/merged.png">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img>
+      
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
@@ -85,7 +83,7 @@ While UPIs do not contribute to the training of YOLO through their "class" and "
  
 
 <h2> How to Overcome This Problem</h2>
-Generally speaking, there are two solutions for this problem arise from UPIs; ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, We not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. 
+Generally speaking, there are two solutions for this problem arise from UPIs; ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="">here </a>.
      
     </section>
 
