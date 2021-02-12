@@ -79,8 +79,8 @@ toc: true
         YOLO learns to estimates the bounding-boxes w.r.t these pre-defined anchors.</p>
       
       <figure>
-      <img width="70%" src="./Blogs/img_object_detector/YOLO.jpg">
-<figcaption>Figure 1: YOLO </figcaption>
+      <img width="70%" src="img_object_detector/YOLO.jpg">
+<figcaption>Figure 2: YOLO </figcaption>
 </figure>
 
 
