@@ -59,10 +59,10 @@ layout: default
 <p> I graduated with a PhD in Computer Engineering from Universite Laval</a> (UL), researching under supervision of 
   <a href="http://vision.gel.ulaval.ca/~cgagne/">Christian Gagne</a> (the director of <a href="https://iid.ulaval.ca/en/">Insitute Intelligence and Data</a>
   and a <a href="https://mila.quebec/en/">MILA's</a> professor) and <a href="http://vision.gel.ulaval.ca/~laurend/">Denis Laurendeau</a>
-  (the director of <a href="http://vision.gel.ulaval.ca/en/">Computer Vision and System Lab </a>). My Ph.D. research revolved around dependable and secure learning models to adversarial examples and Out-of-Distribution samples. Before joining UL, I was a researcher master student at <a href="http://dml.ir/">Digital Media Lab</a> of <a href="http://www.en.sharif.edu/">Sharif University of Technology</a>(SUT), working on <a href="https://ieeexplore.ieee.org/document/7335521/">3D human pose estimation</a> under supervision of <a href="http://sharif.edu/~rabiee/">H. Reza. Rabiee</a>. I obtained my Bachelor of Science in Computer Science from SUT. As my BSc project, I studied and investigated the community detection algorithms for detecting communities of Iranian Mathematicians around the globe.  
+  (the director of <a href="http://vision.gel.ulaval.ca/en/">Computer Vision and System Lab</a>). My Ph.D. research revolved around dependable and secure learning models to adversarial examples and Out-of-Distribution samples. Before joining UL, I was a researcher master student at <a href="http://dml.ir/">Digital Media Lab</a> of <a href="http://www.en.sharif.edu/">Sharif University of Technology</a> (SUT), working on <a href="https://ieeexplore.ieee.org/document/7335521/">3D human pose estimation</a> under supervision of <a href="http://sharif.edu/~rabiee/">H. Reza. Rabiee</a>. I obtained my Bachelor of Science in Computer Science from SUT. As my BSc project, I studied and investigated the community detection algorithms for detecting communities of Iranian Mathematicians around the globe.  
   
         </p>
-<h1 id="my-research-interests">My Research Interests</h1>
+<h2 id="my-research-interests">My Research Interests</h2>
 <ul>
 <li>Dependable and Secure Deep Neural Networks</li>
   <ul>
@@ -75,7 +75,7 @@ layout: default
     </ul>
 </ul>
 
-        <h1> News</h1>
+        <h2> News</h2>
         <ul>
         <li>[2020/12/08] Successfully defended my Ph.D. thesis titled "Toward robust deep learning models". The evaluation committee includes <a href="https://www.papernot.fr/"> Dr. Nicolas Papernot </a>, <a href='http://vision.gel.ulaval.ca/~jflalonde/'>Dr. Jean-Fran&ccediloise Lalonde </a>, and <a href="http://www2.ift.ulaval.ca/~chaib/">Prof. Brahim Chaib-draa</a>. </li>
           <li>[2020/09/12] Two Poster Presentations at <a href="http://montrealaisymposium.com/" target="_blank">Montreal AI Symposium 2020</a>: I) <a href="https://www.youtube.com/watch?v=coLoPTw3Kug" target="_blank">OOD set selection</a>  & II) <a href="https://www.youtube.com/watch?v=hzT55v60ygU" target="_blank">Robust object detector with partially labelled datasets</a> </li>

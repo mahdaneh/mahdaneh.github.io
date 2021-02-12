@@ -719,3 +719,60 @@ div {
 div {
     display: block;
 }
+
+
+/**********************
+*TOC
+/*********************
+ ******************/
+.toc-nav { /* <nav> */
+  position: sticky;
+  top: 0;
+  height: min-content;
+  max-height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid #eee;
+  padding-bottom: 0.5rem;
+
+  /* Hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge (old) */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for webkit browsers */
+.toc-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.toc-nav ul {
+  margin: 0;
+  padding-left: 1rem;  /* indent each level by an additional 1rem */
+  list-style-type: none;
+  display: block;
+}
+
+.toc-nav li a {
+  display: block;
+  margin-top: 0.3rem;
+  color: #77757a;
+  padding: 0;
+}
+
+.toc-nav li a:hover,
+.toc-nav li a.active {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.toc-nav nav {
+  position: sticky;
+  top: 0;
+  padding-right: 0;  /* remove extra padding from Bootstrap's .navbar */
+}
+
+#show-sidebar {
+  position: sticky;
+  top: 0.5rem;
+  margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
+  float: right;
+}
