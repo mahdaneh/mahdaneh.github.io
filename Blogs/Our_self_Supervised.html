@@ -13,7 +13,7 @@ layout: default
 </p>
 <p>Briefly, our method is an end-to-end solution, meaning that during training of YOLO, it recognizes UPIs, then generates pseudo-labels. 
 To this end, we incorporate a pre-trained proxy model (Augmented CNN-- a vanilla CNN with an extra class added to its output) to indicate whether the ROIs estimated by YOLO (during its training) contain an object of interest or not. 
-If the proxy model classifies an ROI as its extra class (meaning it contains an not-interesting object), it is discarded, otherwise, the coordinate information of ROI along with its estimated class and its associated confidence provided by A-CNN are considered as a pseudo-label.
+If the proxy model classifies an ROI as its extra class (meaning it contains a not-interesting object), it is discarded, otherwise, the coordinate information of ROI along with its estimated class and its associated confidence provided by A-CNN are considered as a pseudo-label.
 </p>
 <p>
  In Fig 1, we show the overall pip-line of our proposed method for generating pseudo-labels during training YOLO,
@@ -26,14 +26,6 @@ If the proxy model classifies an ROI as its extra class (meaning it contains an 
 <figcaption>Figure 1: Our proposed method incorporates a pre-trained Augmented CNN</figcaption>
 </figure>
 
+More details can be found in our <a href="https://arxiv.org/abs/2005.11549"> Arxiv paper</a>.
 
-<h2>
-  Reference
-  </h2>
-  `@article{abbasi2020self,
-    title={Self-supervised Robust Object Detectors from Partially Labelled Datasets},
-    author={Abbasi, Mahdieh and Laurendeau, Denis and Gagn{\'e}, Christian},
-    journal={arXiv preprint arXiv:2005.11549},
-    year={2020}
-  }`
 </section>
