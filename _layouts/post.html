@@ -3,6 +3,29 @@ layout: default
 toc_nav_id: toc-nav
 ---
 
+<head>
+  <!--<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>-->
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+      
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  </head>
+
 <header>
   <div class="container">
   <h1>{{ page.title }}</h1>
@@ -13,7 +36,6 @@ toc_nav_id: toc-nav
 </header>
 
 <div class="container">
- 
 
   {%- if page.use_toc -%}
     <div class="row">
