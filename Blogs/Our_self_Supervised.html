@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<head>
+<!--<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+
+<h1>Self-supervised framework for generating pseudo-labels</h1>
+
+<p> <a href='./Blogs/Object_Detector.html'>In previous blog post</a>, we explained how about missing-label instances or UPIs (Unlabelled Positive Instances) create false negative signals, causing performance declination of a modern object detector, e.g. YOLO. Here, we propose to mitigate this challenge through generating pseudo-labels for the UPIs which replace some of false negative signals. 
+</p>
+
+Briefly, our method is an end-to-end solution, meaning that during training of YOLO, it recognizes UPIs, then generate pseudo-labels. Therefore, YOLO is simultaneously trained by the ground-truth labels and our generated pseud-labels. Note that we deal with missing-label instances of objects of interest, meaning indeed there are some labeled instances for the same objects in the training set. Thus it is likely that YOLO can recognize the UPIs of the objects of interest. However, since they are not associated with ground truth labels, they are regarded as incorrect estimations by YOLO, thus incorrectly penalizing it.
+ 
+
+<p> 
+We incorporate a pre-trained proxy model (Augmented CNN-- a vanilla CNN with an extra class added to its output) to indicate whether the ROIs estimated by YOLO contain an object of interest or not. If the proxy model classifies an ROI as its extra class, it is discarded, otherwise, the ROI along with its estimated class and its associated confidence by A-CNN are considered as a pseudo-label. In Fig 1, we show the overall pip-line of our proposed method for generating pseudo-labels during training YOLO, where it simultaneously is trained on both ground truths and the generated pseudo-labels.
+</p>
+
+<p style="text-align:center;">
+<figure>
+<img width="50%" src="./img_object_detector/Ours.png" align="center"> 
+<figcaption>Figure 1: Our proposed method incorporates a pre-trained Augmented CNN</figcaption>
+</figure>
+</p>

@@ -1,7 +1,33 @@
----
-layout: post
+
 ---
 
+layout: post
+
+use_toc: true
+---
+
+<head>
+<!--<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>-->
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
 
     <section>
       <h1>Performance degradation of a SOTA object detector trained on a partially-labeled dataset</h1>
@@ -50,8 +76,8 @@ layout: post
         YOLO learns to estimates the bounding-boxes w.r.t these pre-defined anchors.</p>
       
       <figure>
-      <img width="70%" src="./Blogs/img_object_detector/YOLO.jpg">
-<figcaption>Figure 1: YOLO </figcaption>
+      <img width="70%" src="img_object_detector/YOLO.jpg">
+<figcaption>Figure 2: YOLO </figcaption>
 </figure>
 
 
