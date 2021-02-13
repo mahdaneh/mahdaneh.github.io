@@ -484,3 +484,11 @@ div {
   margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
   float: right;
 }
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
