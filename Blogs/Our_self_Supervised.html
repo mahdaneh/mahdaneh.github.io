@@ -2,29 +2,8 @@
 layout: default
 ---
 
-<head>
-<!--<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>-->
+<section>
   
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-    
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-</head>
-
 <h1>Self-supervised framework for generating pseudo-labels</h1>
 
 <p> <a href='./Blogs/Object_Detector.html'>In previous blog post</a>, we explained how about missing-label instances or UPIs (Unlabelled Positive Instances) create false negative signals, causing performance declination of a modern object detector, e.g. YOLO. Here, we propose to mitigate this challenge through generating pseudo-labels for the UPIs which replace some of false negative signals. 
@@ -43,3 +22,4 @@ We incorporate a pre-trained proxy model (Augmented CNN-- a vanilla CNN with an 
 <figcaption>Figure 1: Our proposed method incorporates a pre-trained Augmented CNN</figcaption>
 </figure>
 </p>
+</section>
