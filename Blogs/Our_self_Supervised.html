@@ -3,13 +3,14 @@ layout: default
 ---
 
 <section>
-  
+
 <h1>Self-supervised framework for generating pseudo-labels</h1>
 
 <p> <a href='./Blogs/Object_Detector.html'>In previous blog post</a>, we explained how about missing-label instances or UPIs (Unlabelled Positive Instances) create false negative signals, causing performance declination of a modern object detector, e.g. YOLO. Here, we propose to mitigate this challenge through generating pseudo-labels for the UPIs which replace some of false negative signals. 
 </p>
+<p>Briefly, our method is an end-to-end solution, meaning that during training of YOLO, it recognizes UPIs, then generate pseudo-labels. Therefore, YOLO is simultaneously trained by the ground-truth labels and our generated pseud-labels. Note that we deal with missing-label instances of objects of interest, meaning indeed there are some labeled instances for the same objects in the training set. Thus it is likely that YOLO can recognize the UPIs of the objects of interest. 
+  However, since they are not associated with ground truth labels, they are regarded as incorrect estimations by YOLO, thus incorrectly penalizing it.</p>
 
-Briefly, our method is an end-to-end solution, meaning that during training of YOLO, it recognizes UPIs, then generate pseudo-labels. Therefore, YOLO is simultaneously trained by the ground-truth labels and our generated pseud-labels. Note that we deal with missing-label instances of objects of interest, meaning indeed there are some labeled instances for the same objects in the training set. Thus it is likely that YOLO can recognize the UPIs of the objects of interest. However, since they are not associated with ground truth labels, they are regarded as incorrect estimations by YOLO, thus incorrectly penalizing it.
  
 
 <p> 
@@ -18,7 +19,7 @@ We incorporate a pre-trained proxy model (Augmented CNN-- a vanilla CNN with an 
 
 <p style="text-align:center;">
 <figure>
-<img width="50%" src="./img_object_detector/Ours.png" align="center"> 
+<img width="50%" src="../images/img_object_detector/Ours.png" align="center"> 
 <figcaption>Figure 1: Our proposed method incorporates a pre-trained Augmented CNN</figcaption>
 </figure>
 </p>
