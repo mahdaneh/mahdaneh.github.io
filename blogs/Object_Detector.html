@@ -1,42 +1,36 @@
-<!-- 
 ---
-layout: default
----
--->
----
-
 layout: post
-toc: true
 ---
 
 <head>
-<!--<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>-->
-  
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  <!--<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>-->
     
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-</head>
-
-
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+      
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  </head>
+<body>
     <section>
-      <article>
+<article>
+      
       <h1>Performance degradation of a SOTA object detector trained on a partially-labeled dataset</h1>
-  <h2 id="s1"> Introduction</h2>
+  <h2 id ="s1"> Introduction</h2>
 <p>
   
   Modern CNN-based object detectors such as faster R-CNN and YOLO achieve remarkable performance when trained 
@@ -47,10 +41,10 @@ toc: true
 
 
   
-  <h2 id="s2">When do datasets for object detection tasks contain missing-label instances?</h2>
+  <h2 id ="s2">When do datasets for object detection tasks contain missing-label instances?</h2>
 
 </p>
-  <p>
+  
     Several scenarios can lead to a partially labelled dataset:
     <ul>
       <li><b>Unintentional error in labelling</b></li>
@@ -63,11 +57,10 @@ toc: true
         (or partially disjoint) sets of Objects of Interest (OoI) for <b>quickly</b> constructing a larger dataset that
         includes a wider range of objects of interest. For instance, <a href="http://www.cvlibs.net/datasets/kitti/">Kitti</a> and <a href="https://bdd-data.berkeley.edu/">BDDK100</a> are
         two different datasets for roads with two disjoint sets of OoIs that could be merged to cover a wider spectrum of variations (light, style, and etc ) and various road objects.
-      <img width="50%" src="img_object_detector/merged.png">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
+      <img width="50%" src="../images/img_object_detector/merged.png" class="center">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
       </ul>
-      </p>
-
-      <h2 id ="s3"> Notations</h2>
+      
+      <h2 id="s3">Notations</h2>
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
@@ -80,25 +73,52 @@ toc: true
       the objectiveness probability ($p(O|\mathbf{r}^a_{G_{ij}})$), and a $K$-dimensional vector as the probabilities over $K$ object categorizes ($\textbf{p}(c|\mathbf{r}^a_{G_{ij}})\in[0,1]^K$) with $a\in\{1,\dots A\}$. Therefore, the output of YOLO will be a tensor of size $\left[g,g,A,5+K\right]$.
       Moreover, for each grid ${G_{ij}}$, a set of pre-defined bounding-boxes (called anchors) with different aspect ratios and scales is considered. 
         YOLO learns to estimates the bounding-boxes w.r.t these pre-defined anchors.</p>
-      
+      <div class="parent">
+        <div class="text">
       <figure>
-      <img width="70%" src="./Blogs/img_object_detector/YOLO.jpg">
-<figcaption>Figure 1: YOLO </figcaption>
+      <img width="70%" src="../images/img_object_detector/YOLO.jpg" class='center'>
+<figcaption>Figure 2: input and output of YOLO </figcaption>
 </figure>
+        </div>
+      </div>
 
+<h3 id="s4">Three kinds of losses</h3>
+<ul>
+<li><b> Object loss</b> 
+  aims to enforce YOLO to predict existence of an OoI inside a given anchor, i.e. $p(O|\mathbf{r}^a_{G_{ij})$ . 
+</li>
 
+<li>
+  <b> Class loss</b> predicts the category of an object of interest.
+
+  </li>
+  <li>
+    <b>Coordinate loss</b> encourages YOLO to esitmate precisely 
+    the coordinate information of ROIs.
+    </li>
+</ul>
 
       
-<h2 id="s4"> How do missing-label instances degrade detection performance?</h2>
-      
-While UPIs do not contribute to the training of YOLO through their "class" and "coordinate" losses, they can adversely contribute through their "object" loss. In contrast to class and coordinate losses, the object loss is computed for all anchors of all grids, whether they contain any ground-truths or not. The computation of object loss for UPIs causes false-negative training signals, leading to a degradation of performance. More specifically, during the training of YOLO, the detector may be able to correctly localize a UPI, estimating its corresponding anchor with $p(O)\sim1$. However, since it has no associated ground-truth label, it is given true object label zero, i.e. $t=0$. This false-negative training signal forces the network to learn a UPI as a negative or not-interesting object even though the model can correctly localize and recognize it. Ultimately, such a false negative signal from a UPI can confuse the network since the LPIs (Labelled Positive Instance) of the same object category forces the network to learn it as an object of interest while the UPIs from the same object category encourage the network to learn it as a not-interesting (negative) object. Therefore, such false-negative signals can cause a drop in the performance of YOLO.      
- 
 
-<h2 id="s5"> How to overcome this performance degradation?</h2>
-Generally speaking, there are two solutions for this problem arise from UPIs; ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="./Blogs/Our_self_Supervised.html">here </a>.
- 
-<script type="text/javascript" src="../toc.js"></script>
+      <h2 id="s5">  How do missing-label instances degrade detection performance?</h2>
+      
+<p>While UPIs do not contribute to the training of YOLO through their class and coordinate losses, they can adversely contribute through their object loss. 
+  In other words, object loss is computed for all anchors of all grids, whether they contain any ground-truths or not. This is not the case for class and coordinate losses.
+   <b>Therefore, computation of object loss for the UPIs creates false-negative training signals, leading to a degradation of performance.</b>
+    More specifically, during training of YOLO, the detector may be able to correctly localize an UPI, estimating its corresponding anchor with $p(O)\sim1$. But, due to the absence of a ground-truth label associated to an UPI, its true object label is considered zero, i.e. $t=0$, by default, causing YOLO to be penelized incorrectly.
+    Indeed, such a false-negative training signal forces the network to learn an UPI as a negative or not-interesting object even though the model already correctly localize and recognize it.
+
+   Ultimately, such false negative signals from UPIs can confuse the network; while LPIs (Labelled Positive Instance) of the same object category forces the network to learn it as an object of interest, such UPIs (from the same object category) encourage the network to learn it as a not-interesting (negative) object.
+ Finally, such false-negative signals can cause a drop in the performance of YOLO.      
+ </p>
+
+<h2 id="s6"> How to overcome this performance degradation?</h2>
+<p>Generally speaking, there are two solutions for this problem arise from UPIs; 
+  ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="./Blogs/Our_self_Supervised.html">here </a>.
+</p>
 </article>
-
     </section>
+
+    <script type="text/javascript"> src="toc.js"</script>
+    </body>
 
