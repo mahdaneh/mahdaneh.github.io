@@ -114,6 +114,10 @@ header {
 div.homepage_list{
   margin: 0;
 }
+div.homepage_list a{
+  float: left;
+  margin: 0;
+}
 div.homepage_list ul li{
 list-style-type: none;
 float: left;
@@ -123,7 +127,6 @@ margin: 0px;
 #logo_img{
   border-radius: 50%;
 }
-
 
 ul.downloads {
   list-style:none;
