@@ -508,55 +508,17 @@ div {
   margin-right: auto;
   width: 50%;
 }
-
-/*article */
-
-article {
-  max-width: 50em;
-  background: white;
-  padding: 2em;
-  margin: 1em auto;
+.sidebox {
+  border: 1px dotted rgb(127, 127, 127);
+  padding: 4px 3px 4px 6px; /* top right bottom left */
+  min-width: 100px ! important;
+  float: right ! important;
+  font-size: 90%;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 6px;
+  visibility: visible;
+  max-width: 50%;
+  width: 35%;
 }
-
-.table-of-contents {
-  float: right;
-  width: 40%;
-  background: #eee;
-  font-size: 0.8em;
-  padding: 1em 2em;
-  margin: 0 0 0.5em 0.5em;
-}
-.table-of-contents ul {
-  padding: 0;
-}
-.table-of-contents li {
-  margin: 0 0 0.25em 0;
-}
-.table-of-contents a {
-  text-decoration: none;
-}
-.table-of-contents a:hover,
-.table-of-contents a:active {
-  text-decoration: underline;
-}
-
-h3:target {
-  animation: highlight 1s ease;
-}
-
-@keyframes highlight {
-  from { background: yellow; }
-  to { background: white; }
-}
-
-#ToC{
-  font-family: Arial, Helvetica, sans-serif;
-  color:Black;
-  background-color:white;
-  border-radius: 10px;
-  width: 40%;
-  border: 1px solid Black;
-  padding: 10px;
-  margin: 10px;
-  float:right;
-}
+.sidebox ul { padding:0em 0em 0em 1.3em; margin:0em; }//TRBL
