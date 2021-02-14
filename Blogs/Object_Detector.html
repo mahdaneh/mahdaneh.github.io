@@ -33,7 +33,7 @@ layout: post
 <article>
       
       <h1>Performance degradation of YOLO for a partially-labeled dataset</h1>
-  <h2 id ="s1"> Introduction</h2>
+  <h2 > Introduction</h2>
 <p>
   
   Modern CNN-based object detectors such as faster R-CNN and YOLO achieve remarkable performance when trained 
@@ -44,7 +44,7 @@ layout: post
 
 
   
-  <h2 id ="s2">When do datasets for object detection tasks contain missing-label instances?</h2>
+  <h2 >When do datasets for object detection tasks contain missing-label instances?</h2>
 
 </p>
   
@@ -63,7 +63,7 @@ layout: post
       <img width="50%" src="../images/img_object_detector/merged.png" class="center">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
       </ul>
       
-      <h2 id="s3">Notations</h2>
+      <h2>Notations</h2>
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
@@ -85,7 +85,7 @@ layout: post
         </div>
       </div>
 
-<h3 id="s4">Three kinds of losses</h3>
+<h3>Three kinds of losses</h3>
 <ul>
 <li><b> Object loss</b> 
   aims to enforce YOLO to predict existence of an OoI inside a given anchor, i.e. $p(O|\mathbf{r}^a_{G_{ij}})$. 
@@ -103,7 +103,7 @@ layout: post
 
       
 
-      <h2 id="s5">  How do missing-label instances degrade detection performance?</h2>
+      <h2>  How do missing-label instances degrade detection performance?</h2>
       
 <p>While UPIs do not contribute to the training of YOLO through their class and coordinate losses, they can adversely contribute through their object loss. 
   In other words, object loss is computed for all anchors of all grids, whether they contain any ground-truths or not. This is not the case for class and coordinate losses.
@@ -115,7 +115,7 @@ layout: post
  Finally, such false-negative signals can cause a drop in the performance of YOLO.      
  </p>
 
-<h2 id="s6"> How to overcome this performance degradation?</h2>
+<h2> How to overcome this performance degradation?</h2>
 <p>Generally speaking, there are two solutions for this problem arise from UPIs; 
   ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="./Blogs/Our_self_Supervised.html">here </a>.
 </p>
