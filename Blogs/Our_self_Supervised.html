@@ -66,14 +66,14 @@ If the proxy model classifies an ROI as its extra class (meaning it contains a n
 In this post, we briefly explain the stages of our proposed framework. Please refer to our <a href="https://arxiv.org/abs/2005.11549"> Arxiv paper</a> to read about more details.
 
 <ul>
-  <li><strong/>Stage 1: In training phase at a given epoch, YOLO outputs some estimated ROIs. They either contains an OOI or not. Then, we extract these ROIs from the given image. </li>
-  <li><strong/>Stage 2: The extracted ROIs are fed to an pre-trained A-CNN,
+  <li><strong>Stage 1</strong>: In training phase at a given epoch, YOLO outputs some estimated ROIs. They either contains an OOI or not. Then, we extract these ROIs from the given image. </li>
+  <li><strong>Stage 2</strong>: The extracted ROIs are fed to an pre-trained A-CNN,
     so that it predicts whether the ROIs contain an OOI through either classifying them as one of it pre-defined categories or reject them (equivalent to classifying a ROI to its extra class).
   The ROIs classified as one of pre-defined categories (corresponding to the categories of objects of interest) are forwarded to the next stage.</li>
 
-  <li><strong/>Stage 3: If an ROI <b>classified confidently</b> as one of the categories of interest, then a new pseudo-label is created, included coordinate info of the ROI, objectness score, and category.
+  <li><strong>Stage 3</strong>: If an ROI <b>classified confidently</b> as one of the categories of interest, then a new pseudo-label is created, included coordinate info of the ROI, objectness score, and category.
     Two latter values are the maximum predictive confidence and its corresponding class estimated by A-CNN for given ROI. </li>
-  <li><strong/> Stage 4: the generated pseudo-labels and ground truth are used for training YOLO.</li>
+  <li><strong> Stage 4</strong>: the generated pseudo-labels and ground truth are used for training YOLO.</li>
 
 </ul>
   <h2 id="s3"> 2.1. Tricks </h2>
