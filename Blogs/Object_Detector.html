@@ -25,16 +25,22 @@
 
 
 <body>
-  
+
   <div class="wrapper">
   <header class="TOC">
     <h2> Table of Content </h2>
-    <h3> <a href="#s1"> Introduction </a></h3>
-    <h3> <a href="#s2"> Scenarios leading to missing-label instance </a></h3>
-    <h3> <a href="#s3"> Notations </a></h3>
-    <h3> <a href="#s4"> YOLO's losses </a></h3>
-    <h3> <a href="#s5"> YOLO's performance declination by missing labels </a></h3>
-    <h3> <a href="#s6"> Overcome performance degradation </a></h3>
+    <ul >
+    
+    <li><h3> <a href="#s1"> 1. Introduction </a></h3></li>
+    <li><h3> <a href="#s2"> 2. Scenarios leading to missing-label instance </a></h3></li>
+    <li><h3> <a href="#s3"> 3. Background </a></h3></li>
+    <ul>
+      <li><h4 > <a href="#s4"> YOLO's losses </a></h4></li>
+    </ul>
+    
+    <li><h3> <a href="#s5"> 4. YOLO's performance declination by missing labels </a></h3></li>
+    <li><h3> <a href="#s6"> 5. Addressing YOLO's performance degradation </a></h3></li>
+  </ul>
   </header>
 
 
@@ -42,7 +48,7 @@
     <section>
 
       
-  <h2> Introduction</h2>
+  <h2 id="s1"> 1. Introduction</h2>
 <p>
   
   Modern CNN-based object detectors such as faster R-CNN and YOLO achieve remarkable performance when trained 
@@ -53,26 +59,26 @@
 
 
   
-  <h2 >When do datasets for object detection tasks contain missing-label instances?</h2>
+  <h2 id="s2" >2. When do datasets for object detection tasks contain missing-label instances?</h2>
 
 </p>
   
     Several scenarios can lead to a partially labelled dataset:
     <ul>
       <li><b>Unintentional error in labelling</b></li>
-      <li> <b>Partial annotation policy </b>:To reduce annotation cost, "partial annotation policy" considers 
+      <li> <b>Partial annotation policy </b>: Aim to reduce annotation cost, "partial annotation policy" considers 
         to annotate only one instance of each object presented in a given image. For example, in an image containing a herd of sheep, only one sheep is annotated, instead of
         fully annotating all the sheep instances in the image. This policy causes some missing bounding box
         annotations but interestingly no missing image-level labels as at least one instance of each existing object in the given image is annotated.</li>
         
-      <li><b>Merged dataset</b>  Combining several datasets from similar (or the same) contexts but with disjoint 
+      <li><b>Merged dataset</b>:  Combining several datasets from similar (or the same) contexts but with disjoint 
         (or partially disjoint) sets of Objects of Interest (OoI) for <b>quickly</b> constructing a larger dataset that
         includes a wider range of objects of interest. For instance, <a href="http://www.cvlibs.net/datasets/kitti/">Kitti</a> and <a href="https://bdd-data.berkeley.edu/">BDDK100</a> are
         two different datasets for roads with two disjoint sets of OoIs that could be merged to cover a wider spectrum of variations (light, style, and etc ) and various road objects.
       <img width="50%" src="../images/img_object_detector/merged.png" class="center">Figure 1: Merging several datasets to quickly building a larger dataset with wider range of variations and object of interest.</img></li>
       </ul>
       
-      <h2>Notations</h2>
+      <h2 id="s3">3. Background</h2>
       
       <p>Before explaining how missing-label instances, which we call them Unlabelled Positive Instances (<b>UPIs</b>),
  do negatively influence the performance of YOLO, let to briefly explain some elements of YOLO along with their notations.</p>
@@ -94,7 +100,7 @@
         </div>
       </div>
 
-<h3>Three kinds of losses</h3>
+<h3 id="s4">Three kinds of losses</h3>
 <ul>
 <li><b> Object loss</b> 
   aims to enforce YOLO to predict existence of an OoI inside a given anchor, i.e. $p(O|\mathbf{r}^a_{G_{ij}})$. 
@@ -112,7 +118,7 @@
 
       
 
-      <h2>  How do missing-label instances degrade detection performance?</h2>
+      <h2 id="s5">4. How do missing-label instances degrade detection performance?</h2>
       
 <p>While UPIs do not contribute to the training of YOLO through their class and coordinate losses, they can adversely contribute through their object loss. 
   In other words, object loss is computed for all anchors of all grids, whether they contain any ground-truths or not. This is not the case for class and coordinate losses.
@@ -124,7 +130,7 @@
  Finally, such false-negative signals can cause a drop in the performance of YOLO.      
  </p>
 
-<h2 id="s6"> How to overcome such a performance degradation?</h2>
+<h2 id="s6"> 5. How to overcome such a performance degradation?</h2>
 <p>Generally speaking, there are two solutions for this problem arise from UPIs; 
   ignore the false negative signals (<a href="https://arxiv.org/abs/1806.06986">Wu et. al. </a>) or correct them. In our <a href="https://arxiv.org/abs/2005.11549"> article </a>, we not only correct these false-negative signals, which are arisen from the object loss but also create more training signals from the coordinate and class losses through generating some pseudo-labels for the UPIs. To read a short description of our self-supervised method, click <a href="./Blogs/Our_self_Supervised.html">here </a>.
 </p>
