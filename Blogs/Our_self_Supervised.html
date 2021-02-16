@@ -63,6 +63,7 @@ If the proxy model classifies an ROI as its extra class (meaning it contains a n
 </figure>
 
   <h2 id="s2"> 2. Our framework in nutshell</h2>
+
 In this post, we briefly explain the stages of our proposed framework. Please refer to our <a href="https://arxiv.org/abs/2005.11549"> Arxiv paper</a> to read about more details.
 
 <ul>
@@ -76,19 +77,23 @@ In this post, we briefly explain the stages of our proposed framework. Please re
   <li><strong> Stage 4</strong>: the generated pseudo-labels and ground truth are used for training YOLO.</li>
 
 </ul>
+
   <h2 id="s3"> 2.1. Tricks </h2>
-  There are some tricks related to A-CNN to get the above framework working.
+  <p>There are some tricks related to A-CNN to get the above framework working.</p>
 
   <h3> Extracted ROIs with different sizes</h3>
+  <p>
   Originally, the CNNs that have some FC layers can not process inputs with different sizes since the FC layers in the architecture can accept only the inputs having identical size. However, feeding the convolution layers
   with different sizes will incur outputs with different sizes, which are indeed the input for the successive FC layer in such an architecture. To address this issue, <a href="https://arxiv.org/abs/1406.4729">SPP (Spatial Pyramid Pooling)</a> layer is proposed.
   Using SPP, we then able to process ROIs with different sizes. However, from technical view point (pytorch), we can not have a batch of inputs with different sizes.
   To circumvent this challenge, we used the k-means trick. In this trick, the input samples with different sizes are clustered so that the samples with similar sizes are placed
   in a cluster. Then, the samples of a cluster are padded so that they all have identical size. Note that simply using naive padding, i.e. padding images to all have size of the largest image, is not recommended since it can create inputs with immense zero-margin, especially for tiny images.
+  </p>
   <h3>Generate pseudo-labels only for confident predictions</h3>
+  <p>
   To create high confidence prediction, we used patch-drop to creat different versions of an ROI, then averaging predictions of A-CNN on all these version can lead to better
   (in terms of calibration) prediction. Later, we only accept the predictions that are large enough (larger than a threshold). Therefore, the chance of misclassification can be reduced to avoid generate incorrect pseudo-labels.
-
+  </p>
 </section>
 </div>
 </body>
