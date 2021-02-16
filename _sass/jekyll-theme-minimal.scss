@@ -121,31 +121,7 @@ div.homepage_list{
 
 }
 
-// div.homepage_list ul li a {
-//   float: left;
-//   margin: 0;
-//   padding: 0;
-// }
-// div.homepage_list ul li{
-// list-style-type: none;
-// float: left;
-// margin: 0px;
-// padding:0;
-// -webkit-padding-start: 0;
-// }
-// div.homepage_list svg a text{
-//   vertical-align: middle;
-//   display: inline-block;
-  
-// }
-// .list_svg{
-//   height:1em;
-//   width:1em;
-//   color:dodgerblue;
-// }
-// div.homepage_list.text{
-//   padding-left: 2px;
-// }
+
 header.social a{
   float: left;
   display: inline;
@@ -226,7 +202,11 @@ section {
   float:right;
   padding-bottom:50px;
 }
+div.news ul li{
+  -webkit-padding-start: 0;
+  padding: 0px;
 
+}
 small {
   font-size:11px;
 }
