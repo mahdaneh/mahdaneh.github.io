@@ -123,17 +123,21 @@ list-style-type: none;
 float: left;
 margin: 0px;
 padding:0;
+-webkit-padding-start: 0;
 }
-
+div.homepage_list svg{
+  display: inline-flex;
+  align-self: center;
+}
 div.social a{
   float: left;
   display: inline;
   padding:5px;
-  
   margin-left: 5px;
 }
 div.social svg{
-  width: 30%;
+  height:1em;
+  width:1em;
 }
 
 ul.downloads {
