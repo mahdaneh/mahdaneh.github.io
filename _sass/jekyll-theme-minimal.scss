@@ -4,7 +4,7 @@
 
 body {
   background-color: #fff;
-  padding:20px;
+  padding:10px;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:400;
@@ -111,11 +111,26 @@ header {
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
+div.homepage_list{
+  margin: 0;
+}
+div.homepage_list ul li a {
+  float: left;
+  margin: 0;
+}
 div.homepage_list ul li{
 list-style-type: none;
+float: left;
+margin: 0px;
 }
 
+<<<<<<< HEAD
 
+=======
+#logo_img{
+  border-radius: 50%;
+}
+>>>>>>> 84aa09b96ff3802cc99cc7fd4d000cec75d530e1
 
 ul.downloads {
   list-style:none;
@@ -178,7 +193,8 @@ strong {
 }
 
 section {
-  width:700px;
+  width: 85%;
+  height:auto;
   float:right;
   padding-bottom:50px;
 }
@@ -200,6 +216,10 @@ footer {
   position:fixed;
   bottom:50px;
   -webkit-font-smoothing:subpixel-antialiased;
+}
+.highlight{
+  background-color: yellowgreen;
+  color: blue;
 }
 
 @media print, screen and (max-width: 960px) {
@@ -434,61 +454,6 @@ div {
 }
 
 
-/**********************
-*TOC
-/*********************
- ******************/
-.toc-nav { /* <nav> */
-  position: sticky;
-  top: 0;
-  height: min-content;
-  max-height: 100vh;
-  overflow-y: auto;
-  border-left: 1px solid #eee;
-  padding-bottom: 0.5rem;
-
-  /* Hide scrollbar */
-  -ms-overflow-style: none;  /* IE and Edge (old) */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Hide scrollbar for webkit browsers */
-.toc-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.toc-nav ul {
-  margin: 0;
-  padding-left: 1rem;  /* indent each level by an additional 1rem */
-  list-style-type: none;
-  display: block;
-}
-
-.toc-nav li a {
-  display: block;
-  margin-top: 0.3rem;
-  color: #77757a;
-  padding: 0;
-}
-
-.toc-nav li a:hover,
-.toc-nav li a.active {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.toc-nav nav {
-  position: sticky;
-  top: 0;
-  padding-right: 0;  /* remove extra padding from Bootstrap's .navbar */
-}
-
-#show-sidebar {
-  position: sticky;
-  top: 0.5rem;
-  margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
-  float: right;
-}
 
 /* to center images*/
 .center {
@@ -497,43 +462,17 @@ div {
   margin-right: auto;
   width: 50%;
 }
-
-/*article */
-
-article {
-  max-width: 50em;
-  background: white;
-  padding: 2em;
-  margin: 1em auto;
+#toc {
+  border: 1px dotted rgb(127, 127, 127);
+  padding: 4px 3px 4px 6px; /* top right bottom left */
+  min-width: 100px ! important;
+  float: right ! important;
+  font-size: 90%;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 6px;
+  visibility: visible;
+  max-width: 50%;
+  width: 35%;
 }
-
-.table-of-contents {
-  float: right;
-  width: 40%;
-  background: #eee;
-  font-size: 0.8em;
-  padding: 1em 2em;
-  margin: 0 0 0.5em 0.5em;
-}
-.table-of-contents ul {
-  padding: 0;
-}
-.table-of-contents li {
-  margin: 0 0 0.25em 0;
-}
-.table-of-contents a {
-  text-decoration: none;
-}
-.table-of-contents a:hover,
-.table-of-contents a:active {
-  text-decoration: underline;
-}
-
-h3:target {
-  animation: highlight 1s ease;
-}
-
-@keyframes highlight {
-  from { background: yellow; }
-  to { background: white; }
-}
+// .sidebox ul { padding:0em 0em 0em 1.3em; margin:0em; }//TRBL

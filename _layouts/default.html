@@ -18,7 +18,7 @@
         <!--<h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>-->
         
         {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
+          <img id="logo_img" src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
@@ -36,19 +36,17 @@
        
         {% endif %}
           {%if true%}
-       <div>
+       <div class="homepage_list">
         <ul>
-          
-          
           <li><a href="https://mahdaneh.github.io/index.html"><span
-            style="font-size: 14pt;font-family: Times New Roman,Times,serif">Home</span></a></li>
+            style="font-size: 14pt;font-family: Times New Roman,Times,serif; margin:0; float:left">Home</span></a></li>
           <li><a href="https://mahdaneh.github.io/publications.html"><span
-            style="font-size: 14pt;font-family: Times New Roman,Times,serif">Publications</span></a></li>
+            style="font-size: 14pt;font-family: Times New Roman,Times,serif;margin:0; float:left">Publications</span></a></li>
           
           <li><a href="https://mahdaneh.github.io/Blog.html"><span
-            style="font-size: 14pt;font-family: Times New Roman,Times,serif">Blogs</span></a></li>
+            style="font-size: 14pt;font-family: Times New Roman,Times,serif;margin:0; float:left">Blogs</span></a></li>
           <li><a href="https://sites.google.com/site/cscabbasi/courses"><span
-            style="font-size:14pt;font-family: Times New Roman,Times,serif">Teaching Materials</span></a></li>
+            style="font-size:14pt;font-family: Times New Roman,Times,serif;margin:0; float:left">Teaching Materials</span></a></li>
           
           
         </ul>

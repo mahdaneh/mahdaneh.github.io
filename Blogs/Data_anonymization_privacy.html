@@ -35,7 +35,7 @@ To address both these criteria (privacy v.s. utility), one requires to devise a 
 <br>
 <figure>
 
-<img src="/Blogs/img_data_privacy/synthetic_data.png"/>
+<img src="../images/img_data_privacy/synthetic_data.png"/>
 <figcaption>A data generative model (named as <bf>synthesis in the figure) should consider to keep the statistical properties of the original data (<bf>utility assessment</bf>) while preserving privacy of customers information (<bf>privacy assurance</bf>). Image from <a href="https://www.oreilly.com/library/view/practical-synthetic-data/9781492072737/ch02.html">Oreilly</a></figcaption>
 </figure>
 <br>
@@ -60,7 +60,7 @@ Generally speaking, GAN, as a generative model, learn to estimate distribution o
 In order to generate synthetic discrete-value, they incorporate an encoder-decoder. The pre-trained encoder ($Enc(\cdot)$) maps each real record represented by $\mathbf{x}\in\mathcal{Z}_{+}^{D}$ (from a $D$-dimensional discrete-value space) into a continuous feature space, then the decoder ($Dec(\cdot)$) maps it back to the discrete-value space. The generator $G(\cdot)$ takes in random prior $\mathbf{z}$ to generate continuous-value feature ($G(\mathbd{z})$), which then maps back to the discrete-value space by $Dec (G(\mathbf{z})) $. Finally, the discriminator is trained to distinguish the generated samples from the real samples. </p>
 <br>
 <figure>
-<img src="/Blogs/img_data_privacy/medGAn.png" width="300", height="300">
+<img src="../images/img_data_privacy/medGAn.png" width="300", height="300">
 </figure>
 <p>
 The privacy of MedGAN's data generated has been empirically assessed by different privacy metrics~\cite{choi2017generating,goncalves2020generation}, but it is better if the generative model can be explicitly trained somehow for encouraging privacy.
