@@ -126,7 +126,7 @@ margin: 0px;
 padding:0;
 -webkit-padding-start: 0;
 }
-div.homepage_list svg a{
+div.homepage_list svg a text{
   vertical-align: middle;
   display: inline-block;
   
@@ -134,6 +134,9 @@ div.homepage_list svg a{
 div.homepage_list svg{
   height:1em;
   width:1em;
+}
+div.homepage_list text{
+  padding-left: 2px;
 }
 header.social a{
   float: left;
