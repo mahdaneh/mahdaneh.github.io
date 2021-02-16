@@ -117,6 +117,7 @@ div.homepage_list{
 div.homepage_list ul li a {
   float: left;
   margin: 0;
+  padding: 0;
 }
 div.homepage_list ul li{
 list-style-type: none;
@@ -128,8 +129,8 @@ padding:0;
 div.homepage_list svg{
   display: inline-flex;
   align-self: center;
-  height:4em;
-  width:4em;
+  height:1em;
+  width:1em;
 }
 header.social a{
   float: left;
@@ -138,8 +139,8 @@ header.social a{
   margin-left: 5px;
 }
 header.social svg{
-  height:4em;
-  width:4em;
+  height:3em;
+  width:3em;
 }
 
 ul.downloads {
