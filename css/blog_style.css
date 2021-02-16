@@ -81,3 +81,14 @@ section {
     margin-right: auto;
     width: 60%;
   }
+
+
+table td.hashtag{
+  color:rgb(0, 119, 255);
+  font-size: 10px;
+}
+table td.time{
+  
+  font-size: 12px;
+  text-align: left;
+}
