@@ -209,7 +209,7 @@ div.news ul li{
   margin:0px
 
 }
-.green{
+div.news .green{
   color:green;
 }
 small {
@@ -288,6 +288,11 @@ footer {
   }
 }
 
+
+
+table td.hashtag{
+  color:rgb(0, 119, 255);
+}
 /**/
 div.parent{ 
     display:table;
