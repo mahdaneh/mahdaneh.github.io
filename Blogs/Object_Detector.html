@@ -109,16 +109,16 @@
 <h3 id="s4">Three kinds of losses</h3>
 <ul>
 <li><b> Object loss</b> 
-  aims to enforce YOLO to predict existence of an OoI inside a given anchor, i.e. $p(O|\mathbf{r}^a_{G_{ij}})$. 
+  aims to enforce YOLO to predict the existence of an object of interest (OOI) inside a given anchor, i.e. $p(O|\mathbf{r}^a_{G_{ij}})$. 
 </li>
 
 <li>
-  <b> Class loss</b> predicts the category of an object of interest.
+  <b> Class loss</b> predicts the category of an OOI
 
   </li>
   <li>
     <b>Coordinate loss</b> encourages YOLO to esitmate precisely 
-    the coordinate information of ROIs.
+    the coordinate of ROIs involving an OOI.
     </li>
 </ul>
 
