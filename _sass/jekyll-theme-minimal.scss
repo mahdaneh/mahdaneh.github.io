@@ -122,15 +122,18 @@ div.homepage_list ul li{
 list-style-type: none;
 float: left;
 margin: 0px;
+padding:0;
 }
 
 div.social a{
   float: left;
   display: inline;
   padding:5px;
-  margin:1px
-
-
+  
+  margin-left: 5px;
+}
+div.social svg{
+  width: 100%;
 }
 
 ul.downloads {
