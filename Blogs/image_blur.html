@@ -56,7 +56,7 @@
     <section>
         <h1> Fourier transform for image blurring</h1>
 
-        <h2 id="s1">Quick introduction: Fourier transform</h2>
+        <h2 id="s1">1. Quick introduction: Fourier transform</h2>
         <p>
         The key point of this post is about how to use Fourier transform for <b>efficient image blurring</b>.
         First, we need to review Fourier transform to transfer an 2D image from spatial domain (pixel space), i.e. $I(x,y)$
@@ -89,7 +89,7 @@ $$F(u,v) =  \underbrace{|F(u,v)|}_{\text{Magnitude}}\exp(j \underbrace{\phi(u,v)
       </div>
 
 
-<h2 id="s2">Image blurring </h2>
+<h2 id="s2">2. Image blurring </h2>
 <p>
 A blurred image can be achieved by obscuring the high frequencies in the frequency domain,
         known as low pass filter --
@@ -100,7 +100,7 @@ A blurred image can be achieved by obscuring the high frequencies in the frequen
     the image blurring can simply be done by one simple multiplication; multiplying the input image with a defined low-pass filter in frequency domain.
 </p>
         <div>
-            <h3 id="s3">Code snippet image blurring</h3>
+            <h3 id="s3">2.1. Code snippet image blurring</h3>
 <pre><code class="python">import numpy as np
 from numpy import fft
 def Gaussian_filter(shape, kernel_width, Low=True ):
@@ -124,7 +124,7 @@ filter_img_frq=orig_frq* GLP_10
 filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
 </code></pre>
         </div>
-            <h3 id ="s4"> Results</h3>
+            <h3 id ="s4"> 2.2. Results</h3>
 <p>
          In <a href="#fig2">figure 2</a>, the 1st row shows the input image, the filtered image, the removed pixel (difference).
               2nd row represents the Gaussian low pass filter and the above images
