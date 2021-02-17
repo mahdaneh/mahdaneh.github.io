@@ -123,6 +123,7 @@ filter_img_frq=orig_frq* GLP_10
 # back the filtered image to spatial domain by inverse of 2D fft
 filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
 </code></pre>
+
         </div>
             <h3 id ="s4"> 2.2. Results</h3>
 <p>
@@ -130,7 +131,8 @@ filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
               2nd row represents the Gaussian low pass filter and the above images
               by their amplitude in frequency domain. Similarly,
               the 3rd row exhibits their phase in frequency domain.
-    The last column represents densities of pixel intensity (1st row), amplitude --$log |F|$ (2nd row) and phase (third row) for the original images and the filtered one.
+    The last column represents densities of pixel intensity (1st row), amplitude-- $log |F|$ (2nd row) and phase (third row)
+    for the original image and the filtered one.
 
 </p>
 <div class="parent">
@@ -145,12 +147,15 @@ filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
 <p>
 In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st column), its filtered image (2nd column) using
         a Gaussian low pass (GLP) filter (with a given kernel width), difference between the original image and its filtered one (3rd column).
-    and (4th column) pixel density of images in the 1st and 2nd columns.
-        As can be seen,
+    and (4th column) pixel density of images in the 1st and 2nd columns.</p>
+        <div class="info">
+  <p> As it can be seen,
         the GLP filter with larger (smaller)
         kernel width leads to less (higher) blurriness,
-        meaning it allows to pass more (less) higher frequencies.
-</p>
+        meaning it allows to pass more (less) higher frequencies.</p>
+</div>
+
+
 
     <table id="tb1">
 

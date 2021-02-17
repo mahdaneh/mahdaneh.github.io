@@ -92,3 +92,15 @@ table td.time{
   font-size: 12px;
   text-align: left;
 }
+.info {
+  background-color: #f3f29c;
+  border-left: 6px solid #e8f804;
+  padding:10px;
+
+}
+.info p{
+margin:20px;
+font-weight:bold;
+font-size: 18px;
+font-family: arial;
+}
