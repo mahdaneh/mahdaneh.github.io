@@ -1,0 +1,154 @@
+<html>
+<head>
+  <!--<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <link rel="stylesheet" href="../css/blog_style.css">
+
+  </head>
+
+
+<body>
+
+  <div class="wrapper">
+  <header class="TOC">
+    <h2> Table of Content </h2>
+    <ul >
+
+    <li><h3> <a href="#s1"> 1. Introduction </a></h3></li>
+    <li><h3> <a href="#s2"> 2. Scenarios leading to missing-label instance </a></h3></li>
+    <li><h3> <a href="#s3"> 3. Background </a></h3></li>
+    <ul>
+      <li><h4 > <a href="#s4"> YOLO's losses </a></h4></li>
+    </ul>
+
+    <li><h3> <a href="#s5"> 4. YOLO's performance declination by missing labels </a></h3></li>
+    <li><h3> <a href="#s6"> 5. Addressing YOLO's performance degradation </a></h3></li>
+  </ul>
+  <a href="../index.html">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+  </svg>
+  Home</a>
+  </header>
+
+
+
+    <section>
+        <h1> Fourier transform for image blurring</h1>
+
+        <h2>Quick introduction: Fourier transform</h2>
+        <p>
+        The key point of this post is about how to use Fourier transform for <b>efficient image blurring</b>.
+        First, we need to review Fourier transform to transfer an 2D image from spatial domain (pixel space), i.e. $I(x,y)$
+        into frequency domain, i.e. $F(u,v)$,
+        where each point ($u,v$) in $F$
+        represents a particular frequency. For example,
+        $F(0,0)$ shows zero frequency in the image, which is the summation of image's pixels intensity.
+        For an image with size $NxM$, its representation in frequency domain has the same size; for a given $u\in\{1,\dots,N\},v\in\{1,\dots,M\}$,
+        its Fourier transform is computed as follows:
+        </p>
+
+$F(u,v) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}I(x,y)\exp(-j2\pi(\frac{ux}{N}+\frac{vy}{M})).$
+
+        <p>The image in the frequency domain consists of two parts: a real part (denoted as $R(u,v)$) and an imaginary part ($I(u,v)$), i.e. $F(u,v) = R(u,v) + I(u,v)j$.
+        As it is shown in Figure 1, we can represent $F(u,v)$ in the polar coordinate system, instead of the Cartesian one:</p>
+
+$F(u,v) =  \underbrace{|F(u,v)|}_{\text{Magnitude}}\exp(j \underbrace{\phi(u,v)}_{\text{phase}}),$
+
+where $|F(u,v)|=\sqrt{R(u,v)^2+I(u,v)^2}$ and $\phi(u,v) = \arctan(I(u,v)/R(u,v))$ are called magnitude and phase at a given frequency $u,v$, respectively.
+
+
+<div class="parent">
+        <div class="text">
+      <figure>
+      <img width="70%" src="../images/image_blur/polar.png" class='center'>
+<figcaption>Figure 1: representing a complex number ($x+iy$) in polar coordinate $re^{j\theta}$ </figcaption>
+</figure>
+        </div>
+      </div>
+
+
+<h2>Image blurring </h2>
+<p>
+A blurred image can be achieved by obscuring the high frequencies in the frequency domain,
+        known as low pass filter --meaning only the low frequencies are allowed to be passed through a filter; e.g. 1st image at 2nd row in <a href="#fig2">figure 2</a>.
+
+    This is equivalent to removing the edges in the spatial domains,
+    which can be achieved by convolving the image with a spatial kernel filter. However,
+    the image blurring can simply be done by one simple multiplication; multiplying the input image with a defined low-pass filter in frequency domain.
+</p>
+
+<div class="parent">
+        <div class="text">
+      <figure>
+      <img width="70%" src="../images/image_blur/low10.jpg" class="center">
+          <figcaption><span id="fig2">Figure 2</span>: Image blurring; low pass filter (band width= 10). 1st row shows the input image, the filtered image, the removed pixel, and the density of pixel intensity in both original image and the filtered one. 2nd row shows a Gaussian low pass filter (kernel width=10) and the images by their amplitude in frequency domain. 3rd row shows their phase in frequency domain. The last column represents densities of pixel intensity (1st row), signal amplitude (2nd row) and signal phase (third row).</figcaption>
+</figure>
+        </div>
+ </div>
+<p>
+In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st column), its filtered image (2nd column) using
+        a Gaussian low pass (GLP) filter (with a given kernel width), difference between the original image and its filtered one (3rd column).
+    and (4th column) pixel density of images in the 1st and 2nd columns.
+        As can be seen,
+        the GLP filter with larger (smaller)
+        kernel width leads to less (higher) blurriness,
+        meaning it allows to pass more (less) higher frequencies. The last column . Notice the larger the
+</p>
+
+    <table id="tb1">
+
+        <tr>
+            <td style="font-size:10px;"> kernel width= 1 </td>
+        <td>
+
+            <img width="70%" src="../images/image_blur/low1.png" class="center" >
+
+        </td></tr>
+
+        <tr>
+            <td style="font-size:10px;"> kernel width= 5 </td>
+        <td>
+            <img width="70%" src="../images/image_blur/low5.png" class="center">
+        </td></tr>
+
+        <tr>
+            <td style="font-size:10px;"> kernel width= 10 </td>
+            <td>
+
+            <img width="70%" src="../images/image_blur/low10.png" class="center">
+        </td>
+
+        </tr>
+    <caption style="caption-side:bottom">Figure 3:  Gaussian LP (GLP)
+        filters with various kernel bandwidths leads to different level of blurriness.</caption>
+    </table>
+
+
+
+
+
+    </section>
+  </div>
+
+
+</body>
+</html>
