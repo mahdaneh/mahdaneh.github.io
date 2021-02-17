@@ -210,9 +210,12 @@ div.news ul li{
 
 }
 #green{
-  color:green;
-  font-style:italic;
+  color:rgb(17, 19, 17);
   font-weight:bold;
+  background-color: #c3f8c1;
+  border-left: 6px solid #04f84d;
+  padding:10px;
+  border-radius: 10px;
 }
 small {
   font-size:11px;
