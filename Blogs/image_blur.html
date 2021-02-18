@@ -42,8 +42,8 @@
             <li><a href="#4"> 2.2. Results</a></li>
         </ul>
         <li><h3><a href="#s5"> 3. Image registeration</a></h3></li>
-        <>
-        <li><h3><a href="s6">3.1. Python code snippet</a></h3></li>
+        <ul>
+        <li><a href="s6">3.1. Python code snippet</a></li>
         </ul>
 
   </ul>
@@ -62,17 +62,17 @@
 
         <h2 id="s1">1. Quick introduction: Fourier transform</h2>
         <p>
-        The key point of this post is about how to use Fourier transform for some image manipulation, including efficient <b>image blurring and images registration</b>.
-        First, we need to review discrete Fourier transform to transfer a 2D image from spatial domain (pixel space), i.e. $I(x,y)$
-        into frequency domain, i.e. $F(u,v)$,
+        The key point of this post is to review image manipulation, including efficient <b>image blurring and images registration</b>, through using Fourier transform .
+        Recall that discrete Fourier aims to transfer a 2D image from spatial domain (pixel space), i.e. $I(x,y)$ into frequency domain, i.e. $F(u,v)$,
         where each point ($u,v$) in $F$
         represents a particular frequency.
-Note that, for an image of size $NxM$, its representation in frequency domain has the same size. For a given pair $(u,v), where $$u\in\{1,\dots,N\},v\in\{1,\dots,M\}$,
+ For a given pair of frequencies $(u,v), where $$u\in\{1,\dots,N\},v\in\{1,\dots,M\}$ with $N, M$ is size of image $I$,
         the Fourier transform of $I(x,y)$ is obtained as follows:
         </p>
 
 $$F(u,v) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}I(x,y)\exp(-j2\pi(\frac{ux}{N}+\frac{vy}{M})).$$
-Interestingly, $F(0,0)$, which shows zero frequency in the image, is the summation of image's pixels intensity.
+
+Interestingly, $F(0,0)$, which shows zero frequency in the image, is the summation of image's pixels intensity. Note that, for an image of size $NxM$, its representation in frequency domain has the same size.
 
         <p>The image in frequency domain are complex number, consisting of two parts: a real part (denoted as $R(u,v)$) and an imaginary part ($I(u,v)$), i.e. $F(u,v) = R(u,v) + I(u,v)j$.
             As it is shown in <a href="#fig1">Figure 1</a>, the complex number of $F(u,v)$ can be represented in polar coordinate system, leading to:</p>
