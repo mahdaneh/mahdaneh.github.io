@@ -54,27 +54,27 @@
 
 
     <section>
-        <h1> Fourier transform for image blurring</h1>
+        <h1> Fourier transform for image manipulation</h1>
 
         <h2 id="s1">1. Quick introduction: Fourier transform</h2>
         <p>
-        The key point of this post is about how to use Fourier transform for <b>efficient image blurring</b>.
-        First, we need to review Fourier transform to transfer an 2D image from spatial domain (pixel space), i.e. $I(x,y)$
+        The key point of this post is about how to use Fourier transform for some image manipulation, including efficient <b>image blurring and images registration</b>.
+        First, we need to review discrete Fourier transform to transfer a 2D image from spatial domain (pixel space), i.e. $I(x,y)$
         into frequency domain, i.e. $F(u,v)$,
         where each point ($u,v$) in $F$
-        represents a particular frequency. For example,
-        $F(0,0)$ shows zero frequency in the image, which is the summation of image's pixels intensity.
-        For an image with size $NxM$, its representation in frequency domain has the same size; for a given $u\in\{1,\dots,N\},v\in\{1,\dots,M\}$,
-        its Fourier transform is computed as follows:
+        represents a particular frequency.
+Note that, for an image of size $NxM$, its representation in frequency domain has the same size. For a given pair $(u,v), where $$u\in\{1,\dots,N\},v\in\{1,\dots,M\}$,
+        the Fourier transform of $I(x,y)$ is obtained as follows:
         </p>
 
 $$F(u,v) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}I(x,y)\exp(-j2\pi(\frac{ux}{N}+\frac{vy}{M})).$$
+Interestingly, $F(0,0)$, which shows zero frequency in the image, is the summation of image's pixels intensity.
 
-        <p>The image in the frequency domain consists of two parts: a real part (denoted as $R(u,v)$) and an imaginary part ($I(u,v)$), i.e. $F(u,v) = R(u,v) + I(u,v)j$.
-            As it is shown in <a href="#fig1">Figure 1</a>, we can represent $F(u,v)$ in the polar coordinate system, instead of the Cartesian one:</p>
+        <p>The image in frequency domain are complex number, consisting of two parts: a real part (denoted as $R(u,v)$) and an imaginary part ($I(u,v)$), i.e. $F(u,v) = R(u,v) + I(u,v)j$.
+            As it is shown in <a href="#fig1">Figure 1</a>, the complex number of $F(u,v)$ can be represented in polar coordinate system, leading to:</p>
 
 $$F(u,v) =  \underbrace{|F(u,v)|}_{\text{Magnitude}}\exp(j \underbrace{\phi(u,v)}_{\text{phase}}),$$
-        where $|F(u,v)|=\sqrt{R(u,v)^2+I(u,v)^2}$ and $\phi(u,v) = \arctan(I(u,v)/R(u,v))$ are called magnitude and phase at a given frequency $u,v$, respectively.
+        where $|F(u,v)|=\sqrt{R(u,v)^2+I(u,v)^2}$ and $\phi(u,v) = \arctan(I(u,v)/R(u,v))$ are called magnitude (spectrum) and phase at a given frequency $u,v$, respectively.
 
 
 
@@ -91,16 +91,18 @@ $$F(u,v) =  \underbrace{|F(u,v)|}_{\text{Magnitude}}\exp(j \underbrace{\phi(u,v)
 
 <h2 id="s2">2. Image blurring </h2>
 <p>
-A blurred image can be achieved by obscuring the high frequencies in the frequency domain,
-        known as low pass filter --
-    meaning only the low frequencies are allowed to be passed through a filter; e.g.
-    the 1st image at 2nd row in <a href="#fig2">figure 2</a> is a Gaussian low pass filter of band width 10.
-    This is equivalent to removing the edges in the spatial domains,
-    which can be achieved by convolving the image with a spatial kernel filter. However,
-    the image blurring can simply be done by one simple multiplication; multiplying the input image with a defined low-pass filter in frequency domain.
+A blurred image can be achieved by obscuring high frequencies of a given image in the frequency domain. To filter out high frequencies, different variants of low pass filter exist, such as Gaussian
+    low pass (GLP) and ideal filters, among others.
+
+    For example, the 1st image at 2nd row in <a href="#fig2">figure 2</a> is a Gaussian low pass filter with band-width 10.
+    This is equivalent to removing edges in the spatial domains,
+    which can equivalently be achieved by convolving the image with a spatial kernel filter (e.g. mean filter). However, it is interesting to note that
+    image blurring can simply be done by one simple multiplication in frequency domain.
 </p>
         <div>
             <h3 id="s3">2.1. Code snippet for image blurring</h3>
+            Here, we define a GLP in frequency domain with a specified band-width, then multiply it by an image, represented in its frequency domain, to obtain a smooth (blurred) image. Note an image in frequency domain is zero-centered so that its zero frequency
+            is placed at center of image (using fftshift function from fft package of numpy).
 <pre><code class="python">import numpy as np
 from numpy import fft
 def Gaussian_filter(shape, kernel_width, Low=True ):
@@ -127,12 +129,11 @@ filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
         </div>
             <h3 id ="s4"> 2.2. Results</h3>
 <p>
-         In <a href="#fig2">figure 2</a>, the 1st row shows the input image, the filtered image, the removed pixel (difference).
-              2nd row represents the Gaussian low pass filter and the above images
-              by their amplitude in frequency domain. Similarly,
-              the 3rd row exhibits their phase in frequency domain.
-    The last column represents densities of pixel intensity (1st row), amplitude-- $log |F|$ (2nd row) and phase (third row)
-    for the original image and the filtered one.
+         In <a href="#fig2">figure 2</a>, the 1st row shows the input image, the filtered image, their difference (removed pixel).
+              2nd row represents a Gaussian low pass filter (band-width=10) and log of amplitude ($log |F|$) of the above images in frequency domain. Similarly,
+              the 3rd row exhibits the corresponding images by their phase in frequency domain.
+    The last column represents densities of pixel intensity (1st row), amplitude (2nd row) and phase (third row)
+    of the original image and the filtered one.
 
 </p>
 <div class="parent">
@@ -187,11 +188,64 @@ In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st 
     </table>
 
 
+<h2 id="s5">Image registration</h2>
+        translating and/or rotating an image ($I$) incur another image $I_1$. To precisely obtain the amount of translation and rotation, using domain frequency can be an efficient solution.
+        Let consider translation, meaning $I_1(x,y) = I(x-x_0, y-y_0)$.  <b>Phase only correlation</b> can be used to obtain the precise values for $(x_0, y_0)$. Representing the images
+        in their frequncy domain, we have $F_1(u,v) = e^{-j(ux_0+vy_0)} F(u,v)$. Then cross-correlation is computed:
+        $$C(u,v)=\frac{F(u,v)F^{*}_{1}(u,v)}{|F(u,v)||F^{*}_{1}(u,v)|}= e^{-j(ux_0+vy_0)}$$.
+        Transferring back $C(u,v)$ from frequency domain to spatial domain, we have $c(x,y) = \delta(x-x_0, y-y_0)$. As this is an impulse signal with a single 1 at $(x_0,y_0)$. Therefore, the values of $x_0, y_0$
+        can be the maximum of $c(x,y)$.
 
+        <h3 id="s6"> Python code snippet </h3>
+<pre><code class="python">
+    import numpy as np
+    import cv2
+    def trans_value(I1, I2):
+
+    #im1: convert to rgb2gray
+    if np.ndim(I1)==3:
+        I1 = I1[:,:,0]
+
+    #im2: convert to rgb2gray
+    if np.ndim(I2)==3:
+        I2 = I2[:,:, 0]
+
+    #compute fft of im1
+    I1_f = (fft.fft2(I1))
+    #compute phase of fft(im1)
+    phase_1= np.angle(I1_f)
+
+    #the above operations repeated for im2
+    I2_f = (fft.fft2(I2))
+    phase_2 = np.angle(I2_f)
+
+    #compute difference in the phase of images as follows
+    diff_phase = np.exp(1j*(phase_1-phase_2))
+
+    #inverse of fft, then shift it
+    poc = fft.fftshift(fft.ifft2(diff_phase))
+
+
+    #finally find the peak in poc
+    #index of maximum value in matrix poc shows translation values (ty,tx)
+    ty,tx  = np.unravel_index(poc.argmax(), poc.shape)
+
+    # origin is now at upper left corner
+    ty = (-ty+int(I1.shape[0]//2))
+    tx = (-tx+int(I1.shape[1]//2))
+
+    # define translation matrix
+    T = np.float32([[1, 0, tx], [0, 1, ty]])
+
+    img_translation = cv2.warpAffine(I1, T, (I1.shape[1], I1.shape[0]))
+
+    return tx,ty, poc, img_translation
+</code></pre>
 
 
     </section>
   </div>
+
 
 
 </body>
