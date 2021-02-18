@@ -41,6 +41,10 @@
             <li> <a href="#s3"> 2.1. Python code snippet</a></li>
             <li><a href="#4"> 2.2. Results</a></li>
         </ul>
+        <li><h3><a href="#s5"> 3. Image registeration</a></h3></li>
+        <>
+        <li><h3><a href="s6">3.1. Python code snippet</a></h3></li>
+        </ul>
 
   </ul>
   <a href="../index.html">
@@ -188,7 +192,7 @@ In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st 
     </table>
 
 
-<h2 id="s5">Image registration</h2>
+<h2 id="s5">3. Image registration</h2>
         translating and/or rotating an image ($I$) incur another image $I_1$. To precisely obtain the amount of translation and rotation, using domain frequency can be an efficient solution.
         Let consider translation, meaning $I_1(x,y) = I(x-x_0, y-y_0)$.  <b>Phase only correlation</b> can be used to obtain the precise values for $(x_0, y_0)$. Representing the images
         in their frequncy domain, we have $F_1(u,v) = e^{-j(ux_0+vy_0)} F(u,v)$. Then cross-correlation is computed:
@@ -196,7 +200,7 @@ In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st 
         Transferring back $C(u,v)$ from frequency domain to spatial domain, we have $c(x,y) = \delta(x-x_0, y-y_0)$. As this is an impulse signal with a single 1 at $(x_0,y_0)$. Therefore, the values of $x_0, y_0$
         can be the maximum of $c(x,y)$.
 
-        <h3 id="s6"> Python code snippet </h3>
+        <h3 id="s6"> 3.1. Python code snippet </h3>
 <pre><code class="python">
     import numpy as np
     import cv2
