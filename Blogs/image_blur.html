@@ -196,13 +196,12 @@ In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st 
         Consider two images $I$ and $I_1$ that the latter is the translated version of the former, i.e. $I_1(x,y) = I(x-x_0, y-y_0)$.
            <b>Phase only correlation</b> can be used to obtain the precise values for $(x_0, y_0)$. Specifically, by representing the images
         in their frequency domain, we have $F_1(u,v) = e^{-j(ux_0+vy_0)} F(u,v)$. As it can be seen, magnitude of the images are equal, while their phases are different.
-           Thus, their phase difference can be used to estimate the amount of translation. In another hand, cross-correlation between $F$ and $F_2$ leads to $e^{-j2\pi(\frac{u}{N}x_0+\frac{v}{M}y_0)}$:
+           Thus, their phase difference can be used to estimate the amount of translation. But how exactly? regarding cross-correlation between $F$ and $F_2$, we have:
 
         $$C(u,v)=\frac{F(u,v)F^{*}_{1}(u,v)}{|F(u,v)||F^{*}_{1}(u,v)|}= e^{-j2\pi(\frac{u}{N}x_0+\frac{v}{M}y_0)}$$
 
-        Transferring back $C(u,v)$ from frequency domain to spatial domain, we have an delta function $c(x,y) = \delta(x-x_0, y-y_0)$, having
-           only 1 at $(x_0,y_0)$, that is displacement amount. Therefore, the values of $x_0, y_0$
-        can be $\arg\max c(x,y)$.
+        Interestingly, inverse of Fourier transform of $C(u,v) leads to delta function $c(x,y) = \delta(x-x_0, y-y_0)$, which has
+           only 1 at entry $(x_0,y_0)$. Therefore, the values of translation (displacement) is $\arg\max c(x,y)$.
 </p>
         <h3 id="s6"> 3.1. Python code snippet </h3>
 <pre><code class="python">
