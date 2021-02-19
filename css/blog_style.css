@@ -93,10 +93,11 @@ table td.time{
   text-align: left;
 }
 .info {
-  background-color: #f3f29c;
-  border-left: 6px solid #e8f804;
+  background-color: white;
+  border-left: 6px solid blue;
   padding:5px;
-  border-radius: 10px;
+
+  color:gray;
 
 }
 .info p{
