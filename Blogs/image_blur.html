@@ -99,21 +99,21 @@ A blurred image can be achieved by obscuring high frequencies of a given image i
     low pass (GLP) and ideal filters, among others.
 
     For example, the 1st image at 2nd row in <a href="#fig2">figure 2</a> is a Gaussian low pass filter with band-width 10.
-    This is equivalent to removing edges in the spatial domains,
-    which can equivalently be achieved by convolving the image with a spatial kernel filter (e.g. mean filter). However, it is interesting to note that
-    image blurring can simply be done by one simple multiplication in frequency domain.
+    Filtering high frequencies is equivalent to removing edges in the spatial domains,
+    which can be achieved by <b>convolving</b> the image with a spatial kernel filter (e.g. mean filter). However, regarding computational complexity,
+    image blurring in domain frequency can simply be done by one simple multiplication, instead of convolving it in spatial domain.
 </p>
         <div>
             <h3 id="s3">2.1. Code snippet for image blurring</h3>
             Here, we define a GLP in frequency domain with a specified band-width, then multiply it by an image, represented in its frequency domain, to obtain a smooth (blurred) image. Note an image in frequency domain is zero-centered so that its zero frequency
             is placed at center of image (using fftshift function from fft package of numpy).
 <pre><code class="python">import numpy as np
-from numpy import fft
+from numpy import <fft></fft>
 def Gaussian_filter(shape, kernel_width, Low=True ):
 
-    X,Y=np.meshgrid(range(shape[1]), range(shape[0]))
+    X , Y = np.meshgrid(range(shape[1]),range(shape[0]))
     # center of image
-    Cx , Cy =   shape[1]/2, shape[0]/2
+    Cx , Cy =  shape[1]/2, shape[0]/2
     # Gaussian filter with given kernel_width
     fltr = np.exp(-((X-Cx)**2+(Y-Cy)**2)/(2*(kernel_width)**2))
 
@@ -124,22 +124,32 @@ def Gaussian_filter(shape, kernel_width, Low=True ):
     return fltr
 
 orig_frq = np.fft.fftshift(np.fft.fft2(I)) #computing 2D fft of the given image using numpy, then zero-center shifting it.
-GLP_10 = Gaussian_filter(I.shape, 10)
-filter_img_frq=orig_frq* GLP_10
-# back the filtered image to spatial domain by inverse of 2D fft
-filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq));
+GLP_10 = Gaussian_filter(I.shape, 10) #create a GLP with band-width=10
+filter_img_frq=orig_frq* GLP_10  #multiply it with image, represented in its frequency domain
+
+filter_img_spt=np.fft.ifft2(np.fft.ifftshift(filter_img_frq)) # back the filtered image to spatial domain by inverse of 2D fft
 </code></pre>
 
+
         </div>
-            <h3 id ="s4"> 2.2. Results</h3>
+            <h3 id ="s4"> Results</h3>
 <p>
          In <a href="#fig2">figure 2</a>, the 1st row shows the input image, the filtered image, their difference (removed pixel).
               2nd row represents a Gaussian low pass filter (band-width=10) and log of amplitude ($log |F|$) of the above images in frequency domain. Similarly,
               the 3rd row exhibits the corresponding images by their phase in frequency domain.
     The last column represents densities of pixel intensity (1st row), amplitude (2nd row) and phase (third row)
     of the original image and the filtered one.
+            <div class="info">
+        Notice that while the pixel densities and the magnitude densities
+        of the filtered and original images are changed due to removing high frequencies (equivalently removing edges),
+        their phase densities
+        are equal. This can show filtering image using such as low-pass filter (kernel band-width=10) do not change their pahses, but only their magnitude.
+        But the interesting question is this is the case for all GLPs with large band-width?
+
+</div>
 
 </p>
+
 <div class="parent">
         <div class="text">
       <figure>
@@ -201,10 +211,21 @@ In <a href="#tb1">figure 3</a>,  each row is exhibiting the original image (1st 
         $$C(u,v)=\frac{F(u,v)F^{*}_{1}(u,v)}{|F(u,v)||F^{*}_{1}(u,v)|}= e^{-j2\pi(\frac{u}{N}x_0+\frac{v}{M}y_0)}$$
 
         Interestingly, inverse of Fourier transform of $C(u,v)$ leads to delta function $c(x,y) = \delta(x-x_0, y-y_0)$, which has
-           only 1 at entry $(x_0,y_0)$. Therefore, the values of translation (displacement) is $\arg\max c(x,y)$.
+           only 1 at entry $(x_0,y_0)$.
+           Therefore, the values of translation (displacement) is $\arg\max c(x,y)$. Therefore, regarding the result of corss-correlation in spatial domain,
+           we know that it has a single peak.
 </p>
+
+        <div class="info">
+
+            <p>Computing the difference in phase of two images, then transfer their difference (in phase) back to the spatial domain. Using argmax, we can find the $(x, y)$ value of displacement.
+
+
+        </div>
+
+<p>
         <h3 id="s6"> 3.1. Python code snippet </h3>
-        <p>the following code can be used to find the amount of displacement, then translate the first image accordingly.</p>
+        the following code can be used to find the amount of displacement, then translate the first image accordingly.</p>
 <pre><code class="python">
     import numpy as np
     import cv2
