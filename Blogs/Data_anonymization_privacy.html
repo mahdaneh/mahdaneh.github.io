@@ -96,9 +96,8 @@ Thus, before sharing these sensitive data with any third-party research institut
   <div class="text">
 <figure>
   <img src="../images/img_data_privacy/uvp.jpg" class="center" width="80%"></figure>
-  
 
-<figcaption class="figcaption"> Utility vs privacy. Image credit:https://aircloak.com/explaining-differential-privacy/</figcaption>
+<figcaption class="figcaption"> Figure1: Utility vs privacy. Image credit:https://aircloak.com/explaining-differential-privacy/</figcaption>
 </div>
 </div>
 
@@ -144,10 +143,14 @@ The pre-trained encoder ($Enc(\cdot)$) maps each real record represented by $\ma
   The privacy of MedGAN's data generated has been empirically assessed by different privacy metrics~\cite{choi2017generating,goncalves2020generation}, but it is better if the generative model can be explicitly trained somehow for encouraging privacy.
     </p>  
 
+<div class="parent">
+  <div class="text">
+    <figure>
 
-<figure>
-<img src="../images/img_data_privacy/medGAn.png" class="center" width="50%">
-</figure>
+    <img src="../images/img_data_privacy/medGAn.png" class="center" width="50%">
+    <figcaption>Figure 2: MedGAN for generating discrete-type (categorical) data by incorporating an AutoEncoder</figcaption>
+
+  </figure>
 
 <h2 id ="s3"> Experiment</h2>
 We use home credit dataset, a Kaggle dataset for predicting repayment abilities of customers according to some attributes. First, the dataset is pre-processed as follows:
@@ -158,9 +161,9 @@ We use home credit dataset, a Kaggle dataset for predicting repayment abilities 
     <li><strong>Data standardization </strong>: float-type attributes are standardized to interval $[0,1]$</li>
 
 </ol>
-        {% include 'home_credite_2020-09.html'%}
+        
 
-
+        {% include 'home_credite_2020-09.html' %}
 
 
 
