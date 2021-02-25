@@ -1,0 +1,201 @@
+
+<html>
+    <head>
+      <!--<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+      </script>
+      <script type="text/javascript"
+        src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>-->
+    
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+    
+      <script type="text/javascript"
+              src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>
+      <link rel="stylesheet" href="../css/blog_style.css">
+    
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+    
+      </head>
+    
+    
+    <body>
+    
+      <div class="wrapper">
+      <header class="TOC">
+        <h2> Table of Content </h2>
+        <ul>
+    
+        <li><h3> <a href="#s1"> 1. Synthesize data for privacy </a></h3></li>
+        <li><h3> <a href="#s2"> 2. MedGAN </a></h3></li>
+            
+        <li><h3><a href="#s3"> 3. Experiment</a></h3></li>
+        <li><h3><a href="#s100"> 4. Reference</a></h3></li>
+            
+      </ul>
+      <a href="../index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+      </svg>
+      Home</a>
+      </header>
+    
+        <section>
+            <h2> Introduction </h2>
+The training set consists of $N=100k$ training pairs of $\{(x_i, y_i)\}_{i=1}^N$, where $x_i$ is the input data with 7 features (with mixed type, namely integer and categorical), representing a customer, and $y_i$ is its associated label representing an integer score. 
+The predictive model should output an estimated score for a given input data, i.e. a new customer.
+
+
+
+ As a user-friendly language, I used Python in conjugation with its some libraries: sklearn for machine learning aspects, Pandas for processing csv format data, and matplotlib for plotting some figures. To do this project, I've spent 12+ hours to explore data, write codes, evaluate the models, analysis the results, and eventually write the document.
+
+
+<h2 >Pre-processing step</h2>
+The following questions are answered in this section:
+
+<ol>
+ <li> What steps did you take to prepare the data?</li>
+
+ <li> Was encoding and / or transformation of the features necessary? If so, what encoding and /or transformation did you use?</li>
+</ol>
+<p>
+Before starting with the data, I remove "ID" column from the csv files, which exists in both the input (features) and output (scores) csv files.
+As the first step, I check for None/NaN values as the missing values in the dataset, 
+revealing some features such as Diplome, specialite contain "None" (missing) values. 
+Although I can drop the rows containing missing values or setting a random value for them,
+ I instead consider "None" as a seperate category to keep the number of samples as $100k$. Moreover, maybe there is a relationship between the final score and the persons with None value as their Diplome and specialite features.
+ Note the other features have no missing values.
+ </p>
+ <p>
+To prepare the data for a machine learning model, I need to transfer the categorical features (with string type) to some numerical values. To do so, 
+for each string-type feature, I can either encode its categorical values to integer values in $\{0,\dots, K-1\}$, where $K$ is the number of its categories, or to one-hot vectors $\{0,1\}^{K}$. While the former encoding procedure (I call it integer encoding) do not modify data dimensionality, the latter conversion increases the dimensionality of each categorical feature from 1 to $K$-d. Therefore, comparing to integer-encoding, the one-hot encoding procedure can cause an increase in computational cost and training time of ML models.
+</p>
+<p>For the given dataset, there are 5 categorical features and 2 integer features. Using one-hot encoding, we end up to a data sample with $94$-dimensions (from 7-d to 94-d). Obviously, for the integer encoding schema, the dimensionality of converted data remains $7$-d.</p>
+
+
+<p>
+After <b>feature transformation</b>, I normalize all the integer features to [0,1] to have them in the same scale. This is particularly of importance for gradient-based, e.g. SGD, (to have equal scale for the gradient of all the features ) and distance-based ,e.g. K-NN training algorithms (to have equal contribution of all the features in computation of distance). However, for tree-based learning algorithms, e.g. Decision Tree and Random Forest, the normalization step is not necessary as they incrementally divide the feature space, regardless of types of features or the magnitude of them.
+</p>
+
+<h2>ML Models and Evaluation</h2>
+<p>
+The following questions will be answered in this section:
+<ol>
+<li> What method of machine learning did you apply?</li>
+ <li>Why did you choose this method?</li>
+<li> What other methods have you considered and why? </li>
+ <li>In your opinion are there any additional variables / characteristics that could have been useful for
+to build a "better model"? If yes give some examples</li>
+<li> How did you train your model? When learning, what aspects did you have to
+take into account?</li>
+<li> What metrics, other than RMSE, would have been useful in evaluating your predictions why?</li>
+<li> Which features had the most impact on the score? How did you identify them as
+being the most significant? Which features had the least impact on the score? how the
+have you identified?</li>
+
+    </ol>
+</p>
+
+
+<p>
+
+I use the following models: Ridge regression, Decision Tree, Random Forest, and Gradient Boost. For all the ML models, except GBM, sklearn has been used. For GBM, I used lightGBM lib due to its efficiency in training. I am not using kernelized SVM due to its prohibitively high time complexity ($O(N^3)$) and space complexity ($O(N^2)$). Although, theoretically speaking, logistic regression and neural network are less computationally demanding, their training time can be high (to reach a convergence point or plateau in loss landscape), particularly for a short time given to us for doing this task. Therefore, for this report, these two methods are ignored. 
+</p>
+<p>
+Therefore, in this report, a range of models, including linear and non-linear models in single vs ensemble modes are used in order to compare them w.r.t. their performance. To choose these methods, time and space complexities are considered. 
+</p>
+<p>
+The learning models only perform well once their hyper-parameters are setting properly. For example, I found that "min\_samples\_split" of Decision Tree in sklearn has a great influence on the generalization gap (computational time as well), meaning setting this hyper-parameter to a small value (e.g. 2) does lead to low training but high test errors (large generalization gap). However, setting it to a relatively (not too much high) higher value incurs to better (smaller) generalization gap. To see values of the important hyper-parameters of each ML model used in this report, the interested readers refer to Table~\ref{hyper}. To tune the hyper-parameters associated with the models, we utilize cross-validation on the training set (note that the original training set is divided into a training and a validation set) with 10 folds, for all the experiments.
+</p>
+For evaluation purposes, I split the training set with 100K samples into a training set with randomly chosen $\sim$70K samples and a validation set with the remaining samples ($\sim$30K samples).  To report the final result, the validation set (30K samples) are used for evaluation purposes (from now on, we call this set as test set). Note that the original test set is unlabeled, thus, it is not possible to perform evaluation on it. The estimated score for the given real test set has been submitted.
+
+The performance of ML methods for regression task is usually compared using RMSE (Root Mean Squared Error), i.e. $\sqrt{\sum_{i=1}^{N}(\hat{y}_{i}-y_i)^2/N}$, where $\hat{y}_i$ is the estimated score of i-th sample. However, for linear regression models, we can also assess them by R$^2$ score, i.e. $1-\frac{\sum_{i=1}^{N}(\hat{y}_i-y_i)^2}{\sum_{i=1}^{N}(y_{i}-\bar{y})}$. This metric shows how the fitted model performs more worse than a model that always (regardless of input data) outputs the average of scores, i.e. $\bar{y}=(\sum_{i=1}^{N}y_i)/N$. The larger R$^2$ score is better. However, this metric is not valid for non-linear models such as Decision Tree, Random Forest and GBM.
+
+
+\begin{table}[t!]
+\begin{tabular}{ccc|cc}
+& \multicolumn{4}{c}{ RMSE  } \\
+\cline{2-5}
+Method & \multicolumn{2}{c|}{ one-hot (94-d) } & \multicolumn{2}{c}{ integer-encoding (7-d) } \\
+\hline
+& training & test & training & test \\
+Ridge ($R^2$ score \%) & 19.61 & 19.61 (74.41) & 30.38 &30.50 (38.12) \\
+Linear Neural Network & 21.53 (1) & 21.55 (69.1) & 31.55 (35.07) & 31.62 (0)\\
+Decision Tree &18.69 & 20.15& 19.12& 20.03 \\
+
+Random Forest  &17.67 & \underline{19.24}   &18.56 &\underline{19.44}  \\
+Gradient Based Method &18.76 & \textbf{18.87}&18.76 & \textbf{18.87} \\
+\end{tabular}
+
+\caption{Comparison of RMSE of different ML models on the given data set with two ways of feature representation: one-hot (94-d) and integer-encoding (7-d). Note that all the integer features are normalized to [0,1]. The first and second best performances are shown by \textbf{boldface} and \underline{underline}, respectively.}
+    \label{tab:my_label}
+\end{table}
+
+
+
+Seen in Table~\ref{tab:my_label}, as expected, the ensemble based methods, i.e. GBM and Random Forest, are the winners for estimating the final score (target) with higher accuracy (in terms of RMSE) than the single models (Decision Tree and Ridge regressor). 
+As it can be seen in Table~\ref{tab:my_label}, the tree-based regressors are not sensitive to the representation of data. Indeed, the tree-based regressors can naturally handle the categorical and numerical features as they divide the feature space regardless of the type of features. However, ridge regressor (particularly for integer-encoding schema) is performing worse on both training and test sets in terms of RMSE and R$^2$ score, showing its sensitivity to the encoding schema and the unsuitability of integer-coding of categorical data for such a non-tree based linear method. Likewise ridge regression, in our experiments, I also observe the same behaviour for linear neural networks\footnote{With one layer of 32 neurons for the integer-encoding and 256 neurons for the one-hot schema, with no activation function}, meaning its performance is drastically low for the integer-encoding features.
+
+Although the two encoding schemas do not show a significant difference in generalization performance for the tree-based methods, the integer-encoding is more plausible due to its lower computational complexity. In other words, the dimentionality of the input data plays an important role in training time of the tree-based methods; the lower dimentionality of the input features, the quicker training time. \textit{As a result, according to our results, the best combination for this dataset is the ensemble of tree-based methods on the integer representation of the categorical features.}
+
+
+Moreover, we also investigate the performance of k-nearest neighbors regressor. In Fig.~\ref{app-knn}, the performance of k-nn in terms of RMSE as a function of the number of nearest neighbors ($k$) for the integer-encoding representation is presented\footnote{Note k-nn method is not applied for the one-hot representation due to its high computational time.}. The performance is increased by higher $k$ up to $k=12$, after then, the performance is slightly improved, then reaching to a plateau. However, the performance of k-nn is still lower than the ensemble-based methods (GMB and Random Forest). 
+
+
+<div class="parent">
+    <div class="text">
+  <figure>
+    <img src="../images/img_interview_qs/knn.png" class="center" width="80%"></figure>
+  
+  <figcaption class="figcaption"> knn</figcaption>
+  </div>
+  </div>
+
+<h3>Feature Importance</h3>
+
+<p>Using lightGBM lib, I plot the feature importance to show the impact of each feature on the final score.
+For 7-d features with integer encoding schema, it can be seen in Fig.\ref{gbm-7d} that "Distance" is the most impactful feature while "Diplome" is the least one for indicating the score value. However, For 94-d features achieved by one-hot encoding schema (Fig~\ref{gbm-49d}), the importance diagram indicates the "Distance" and "Experience" as two most impactful features. And the rest of feature are relatively similar in terms of their effect on the final score.
+</p>
+
+<div class="parent">
+    <div class="text">
+  <figure>
+    <img src="../images/img_interview_qs/Feature_importance_GBM.png" class="center" width="80%">
+    
+    <figcaption class="figcaption">Feature importance by GBM for 7-d feature space achieved by integer encoding schema. </figcaption>
+    </figure>
+</div>
+</div>
+
+
+<div class="parent">
+    <div class="text">
+  <figure>
+    <img src="../images/img_interview_qs/Feature_importance_GBM-94d.png" class="center" width="80%">
+    <figcaption class="figcaption">Feature importance by GBM for 94-d feature space achieved by one-hot encoding schema.</figcaption>
+</figure>
+</div>
+</div>
+<h2> Conclusion</h2>
+<p>
+Considering the tabular data containing mixed-data types with a small number of features, the tree-based method (namely Decision Tree) shows its superiority over the linear non-tree based methods, namely ridge regression and linear neural network. Because such a tree-based method can model non-linear functions and inherently able to handle the categorical and integer data type. However, the best results are provided by the \textbf{ensemble of tree-based methods, namely GBM}. Moreover, while the tree-based methods (single or ensemble of them) are not sensitive to the feature encoding schema, for computationally reasons, it is better to use the encoding method that keeps dimentionality of the input features as low as that of the original data (integer-encoding).
+
+</p>
+
+        </section>
+    </div>
+</body>
+</html>    
