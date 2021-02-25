@@ -146,7 +146,3 @@ div.parent .img{
 font-style: italic;
 font-size: 15px;
 }
-
-li.number_list{
-  list-style-type: decimal-leading-zero;
-}
