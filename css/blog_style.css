@@ -113,3 +113,40 @@ vertical-align:middle;
  vertical-align:middle;
     
 }
+.overview{
+    background-color: rgb(233, 224, 224);
+  border: 6px solid rgb(0, 204, 255);
+  padding:20px;
+  font-size: 18px;
+  border-radius: 15%;
+  color:rgb(61, 61, 175);
+}
+
+
+/**/
+div.parent{ 
+  display:table;
+  width:100%;
+  
+}
+div.parent .text{ 
+  
+  vertical-align:middle;
+  display:table-cell;
+  text-align: center;
+  
+}
+div.parent .img{
+  vertical-align:middle;
+  display:table-cell;
+  
+  
+}
+.figcaption{
+font-style: italic;
+font-size: 15px;
+}
+
+li.number_list{
+  list-style-type: decimal-leading-zero;
+}
