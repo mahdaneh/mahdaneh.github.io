@@ -524,7 +524,7 @@ div {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: white;
+  background-color: rgb(121, 23, 23);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -546,7 +546,7 @@ div {
   width: 25px;
   height: 25px;
   right: -17px;
-  background-color: white;
+  background-color: rgb(167, 23, 23);
   border: 4px solid #FF9F55;
   top: 15px;
   border-radius: 50%;
@@ -572,7 +572,7 @@ div {
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid white;
+  border: medium solid rgb(31, 42, 92);
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
 }
@@ -586,9 +586,9 @@ div {
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid white;
+  border: medium solid rgb(102, 47, 47);
   border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent rgb(196, 97, 130) transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
