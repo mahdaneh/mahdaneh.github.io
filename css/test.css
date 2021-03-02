@@ -547,3 +547,35 @@ div {
 margin: 1rem 0;
 }
 
+
+hr.separator {
+  border-top: 5px dashed rgb(81, 209, 226);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  
+}
+
+table .competencies{
+  
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: table;
+  margin: 5px 0;
+
+
+}
+table.competencies td{
+display: table-cell;
+margin:auto;
+vertical-align:middle;
+color:rgb(228, 21, 247);
+text-align:center;
+
+
+}
+
+
+p + p { margin-top: 30px; }

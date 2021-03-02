@@ -54,30 +54,47 @@
       </header>
     
         <section>
-            <h2> Introduction </h2>
-The training set consists of $N=100k$ training pairs of $\{(x_i, y_i)\}_{i=1}^N$, where $x_i$ is the input data with 7 features (with mixed type, namely integer and categorical), representing a customer, and $y_i$ is its associated label representing an integer score. 
-The predictive model should output an estimated score for a given input data, i.e. a new customer.
+            <h1>Interview Questions for an industrial machine learning researcher position </h1>
+            <div class="overview">
+
+            Applied for a machine learning researcher position in a company, I was being asked to apply
+            machine learning models on a given datase. I advised my ML pipline from data preparation to model selection, to performance evaluation.
+            To solve the given task, I used Python
+            in conjugation with the following known libraries: sklearn for machine learning matters,
+            Pandas for processing csv format data,
+            and matplotlib for plotting some figures.
+            </div>
 
 
 
- As a user-friendly language, I used Python in conjugation with its some libraries: sklearn for machine learning aspects, Pandas for processing csv format data, and matplotlib for plotting some figures. To do this project, I've spent 12+ hours to explore data, write codes, evaluate the models, analysis the results, and eventually write the document.
 
+
+
+<p style="display:block;">
+<span style="  font-weight:bold; font-size:20px;"> Dataset</span>: The given tabular dataset contains a training set of $N=100K$ training pairs of $\{(x_i, y_i)\}_{i=1}^N$,
+            where $x_i$ is the input data with 7 features (with mixed type, namely integer and categorical),
+            representing a customer, and $y_i$ is its associated label representing an integer score. The predictive model should output an estimated score for a given input data, i.e. a new customer.
+            </p>
 
 <h2 >Pre-processing step</h2>
-The following questions are answered in this section:
 
-<ol>
+<div style="background-color: rgb(211, 241, 243); font-size: 20px;">
+
+The following questions are answered in this section:
+<ol >
  <li> What steps did you take to prepare the data?</li>
 
  <li> Was encoding and / or transformation of the features necessary? If so, what encoding and /or transformation did you use?</li>
 </ol>
+</div>
 <p>
-Before starting with the data, I remove "ID" column from the csv files, which exists in both the input (features) and output (scores) csv files.
+    </p>
+Initially, I remove "ID" column from the csv files, whci represent ID of each customer and exists in both given csv files; input file (features) and output file (scores).
 As the first step, I check for None/NaN values as the missing values in the dataset, 
 revealing some features such as Diplome, specialite contain "None" (missing) values. 
-Although I can drop the rows containing missing values or setting a random value for them,
- I instead consider "None" as a seperate category to keep the number of samples as $100k$. Moreover, maybe there is a relationship between the final score and the persons with None value as their Diplome and specialite features.
- Note the other features have no missing values.
+Here, I do not impute the missing values using common methods, such as <a href="https://scikit-learn.org/stable/modules/impute.html">mean-imputation, KNN-imputation</a>, and <a href="https://academic.oup.com/bioinformatics/article/28/1/112/219101">missforest method</a>. Instead, I kept them as a separate category since
+   there maybe is a relationship between the final score and the customers with None values as their Diplome and Specialite features.
+ Note other features have no missing values.
  </p>
  <p>
 To prepare the data for a machine learning model, I need to transfer the categorical features (with string type) to some numerical values. To do so, 
