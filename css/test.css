@@ -95,7 +95,7 @@ div.homepage_list svg{
 }
 
 div.social{
-  float:left;
+  float:inherit;
   
   display: block;
   padding:5px;
@@ -577,5 +577,5 @@ text-align:center;
 
 }
 
-
+/* two consequative paragraphs have large margin */
 p + p { margin-top: 30px; }
