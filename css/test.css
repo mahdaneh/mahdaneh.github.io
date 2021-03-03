@@ -94,20 +94,7 @@ div.homepage_list svg{
 
 }
 
-div.social{
-  float:inherit;
-  
-  display: block;
-  padding:5px;
-  
-}
-div.social svg{
-  width:10%;
-  padding: 1px;
-  margin-left: 1px;
-  color: black;
-  display: inline;
-}
+
 .logo_img{
   border-radius: 50%;
   display: block;
@@ -549,7 +536,7 @@ margin: 1rem 0;
 
 
 hr.separator {
-  border-top: 5px dashed rgb(81, 209, 226);
+  border-top: 3px dashed rgb(81, 209, 226);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -573,9 +560,43 @@ margin:auto;
 vertical-align:middle;
 color:rgb(228, 21, 247);
 text-align:center;
+width: 10%;
 
 
 }
+
+table.competencies svg{
+  vertical-align:middle;
+  color:black;
+  text-align:center;
+
+  padding: 10px;
+  width: 20%;
+  border-radius: 10%;
+  
+  }
+  
+/* footer */
+/* div.social{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  
+  
+}
+div.social svg:first-child{
+  width:5%;
+  margin-left: 10%;
+  color: black;
+  display: inline;
+}
+div.social svg{
+  width:5%;
+  padding: 1px;
+  
+  color: black;
+  display: inline;
+} */
 
 /* two consequative paragraphs have large margin */
 p + p { margin-top: 30px; }
